@@ -1,0 +1,14 @@
+@layer components {
+    /* NAV MENU */
+    .navbar__menu {
+        @apply flex items-center justify-center
+    }
+
+    .navbar__menu-item {
+        @apply p-[2rem] text-[1.7rem] uppercase font-thin
+    }
+
+    .navbar__menu-item.active {
+        @apply text-second font-bold
+    }
+}

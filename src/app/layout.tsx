@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { roboto } from "@/lib/fonts";
+import { roboto } from "@/lib/shared/fonts";
 import "./globals.css";
+import NavbarComponent from "@/components/navbar";
+import FooterComponent from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "SYLVAINKADJO",
+  title: "Blog - SK",
   description: "sylvain kadjo website",
 };
 
@@ -32,7 +34,11 @@ export default function RootLayout({
         href="/favicon/favicon-16x16.png"
       />
       <link rel="manifest" href="/site.webmanifest" />
-      <body className={roboto.className}>{children}</body>
+      <body className={roboto.className}>
+        <NavbarComponent />
+        {children}
+        <FooterComponent />
+      </body>
     </html>
   );
 }
