@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { roboto } from "@/lib/shared/fonts";
+import { roboto, inter } from "@/lib/shared/fonts";
 import "./globals.css";
 import NavbarComponent from "@/components/navbar";
 import FooterComponent from "@/components/footer";
@@ -34,7 +34,7 @@ export default function RootLayout({
         href="/favicon/favicon-16x16.png"
       />
       <link rel="manifest" href="/site.webmanifest" />
-      <body className={roboto.className}>
+      <body className={inter.className}>
         <NavbarComponent />
         {children}
         <FooterComponent />
