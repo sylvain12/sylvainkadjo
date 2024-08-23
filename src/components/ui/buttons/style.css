@@ -1,0 +1,17 @@
+@layer components {
+    .btn {
+        @apply text-[1.2rem] border font-medium px-[1.05em] py-[0.725em]
+    }
+
+    .btn.btn-disabled {
+        @apply opacity-35 cursor-default pointer-events-none
+    }
+
+    .btn.btn-second {
+        @apply border-second bg-second text-white transition hover:bg-main
+    }
+
+    .btn.btn-medium {
+        @apply px-[1.85em] py-[0.85em] text-[1.5rem]
+    }
+}
