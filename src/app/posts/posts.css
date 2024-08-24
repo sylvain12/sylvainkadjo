@@ -1,0 +1,13 @@
+@layer components {
+
+    /* POSTS HEADER */
+    .posts__header {
+        @apply flex items-center justify-center text-center py-[6rem] p-[4rem]
+    }
+
+    /* POSTS CONTENT */
+
+    /* .posts__content {
+
+    } */
+}
