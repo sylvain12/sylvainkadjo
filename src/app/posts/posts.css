@@ -2,7 +2,11 @@
 
     /* POSTS HEADER */
     .posts__header {
-        @apply flex items-center justify-center text-center py-[6rem] p-[4rem]
+        @apply flex items-center justify-center text-center 
+    }
+
+    .posts__header-text {
+        @apply text-[2.5rem] font-light
     }
 
     /* POSTS CONTENT */

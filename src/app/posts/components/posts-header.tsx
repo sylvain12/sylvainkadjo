@@ -1,7 +1,7 @@
 export default function PostsHeaderComponent() {
   return (
     <div className="posts__header">
-      <div className="text-[3rem] font-light">
+      <div className="posts__header-text">
         <p>
           Craft contents ✍🏽 that ignite{" "}
           <span className="text-main font-bold">inspiration</span> 💡,
