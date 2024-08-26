@@ -18,7 +18,7 @@ export default function FooterComponent() {
               target="_blank"
               href={link.link}
             >
-              <Icon className="text-second" icon={link.icon} width={40} />
+              <Icon className="text-second" icon={link.icon} width={35} />
             </Link>
           ))}
       </div>
