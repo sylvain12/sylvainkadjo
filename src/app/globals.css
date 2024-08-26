@@ -101,7 +101,7 @@ a {
 /* POSTS PAGE */
 .posts {
   display: grid;
-  grid-template-columns: 350px 1fr 350px;
+  grid-template-columns: 20px 1fr 20px;
   grid-template-rows: 150px 1fr;
   grid-column: 1/-1;
   grid-row: 2/3;

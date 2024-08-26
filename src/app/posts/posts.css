@@ -9,9 +9,82 @@
         @apply text-[2.5rem] font-light
     }
 
-    /* POSTS CONTENT */
+    /* POST CONTENT */
+    .posts__content {
+        @apply w-[680px] max-w-[680px] mx-auto
+    }
 
-    /* .posts__content {
+    /* POST LIST ITEM*/
 
+    /* .posts__list {
+        
     } */
+
+    .posts__list-item {
+        @apply py-[4rem] flex justify-between gap-[2rem]
+    }
+
+    .posts__list-item:not(:last-child) {
+        @apply border-b border-b-light
+    }
+
+    .posts__list-item:first-of-type {
+        @apply pt-0
+    }
+
+    .posts__list-item__content-title {
+        @apply text-[2.3rem] font-semibold mb-[1.65rem] leading-[25px]
+    }
+
+    .posts__list-item__content-description {
+        @apply text-[1.75rem] mb-4 leading-[20px]
+    }
+
+    .posts__list-item__content-date {
+        @apply text-[1.4rem] font-thin
+    }
+
+    .posts__list-item__footer {
+        @apply mt-[3rem] flex justify-between items-center
+    }
+
+    .posts__list-item__footer-left, .posts__list-item__footer-right {
+        @apply flex gap-[2rem] items-center
+    }
+
+    .posts__list-item__footer-left {
+        @apply gap-[1.8rem]
+    }
+
+    .posts__list-item__footer-left-reaction {
+        @apply flex items-center gap-1 font-thin
+    }
+
+    .posts__list-item__content {
+        @apply max-w-[475px]
+    }
+
+    .posts__list-item__image {
+        @apply w-[150px]
+    }
+
+
+    /* POST LOADER  */
+    .posts__loader {
+        @apply w-full
+    }
+
+    .posts__loader-item {
+        @apply flex items-baseline space-y-8 animate-pulse md:space-y-0 md:space-x-8 rtl:space-x-reverse
+    }
+
+    .posts__loader-item:not(:last-child) {
+        @apply mb-[4rem]
+    }
+
+    /* POST SPOTLIGHT */
+
+    .posts__spotlight {
+        @apply border-b border-light mb-[4rem] pb-[4rem]
+    }
 }

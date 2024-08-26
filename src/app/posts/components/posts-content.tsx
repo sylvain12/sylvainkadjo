@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { IBlogPost } from "../models/types";
 import PostListComponent from "./post-list";
 import PostLoaderComponent from "./post-loader";
+import PostSpotlightComponent from "./post-spotlight";
 
 export default function PostsContent() {
   const [posts, setPosts] = useState<IBlogPost[]>([]);
@@ -28,7 +29,10 @@ export default function PostsContent() {
       {isPending ? (
         <PostLoaderComponent />
       ) : (
-        <PostListComponent posts={posts} />
+        <>
+          {<PostSpotlightComponent post={posts.slice(0, 1)[0]} />}
+          <PostListComponent posts={posts.slice(1)} />
+        </>
       )}
     </div>
   );
