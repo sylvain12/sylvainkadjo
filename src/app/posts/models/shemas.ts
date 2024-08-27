@@ -1,3 +1,4 @@
+import { TagSchema } from "@/lib/shared/schemas";
 import { z } from "zod";
 
 export const CommentSchema = z.object({
@@ -8,12 +9,6 @@ export const CommentSchema = z.object({
   publishedDate: z.string().date(),
   parentCommentId: z.optional(z.number()).nullable(),
   //   status: z.enum(["approved", "pending", "spam"]),
-});
-
-export const TagSchema = z.object({
-  id: z.number(),
-  name: z.string(),
-  color: z.nullable(z.string()).optional(),
 });
 
 export const BlogPostSchema = z.object({

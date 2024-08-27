@@ -1,6 +1,5 @@
 import { INavigationLinkItem } from "./interfaces";
 
-
 export const navMenuItems: INavigationLinkItem[] = [
   {
     name: "Home",

@@ -6,3 +6,9 @@ export interface INavigationLinkItem {
   openInNewTab?: boolean;
   isActive?: boolean;
 }
+
+// Interface for a Tag
+export interface ITag {
+  id: number;
+  name: string;
+}

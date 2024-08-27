@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const { fontFamily } = require("tailwindcss/defaultTheme");
 
 const config: Config = {
   content: [
@@ -19,6 +20,9 @@ const config: Config = {
         second: "var(--color-second)",
         light: "var(--color-light)",
         text: "var(--text-color)",
+      },
+      fontFamily: {
+        serif: ["var(--ff-serif)", ...fontFamily.serif],
       },
     },
   },

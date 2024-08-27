@@ -3,6 +3,7 @@ import { roboto, inter } from "@/lib/shared/fonts";
 import "./globals.css";
 import NavbarComponent from "@/components/navbar";
 import FooterComponent from "@/components/footer";
+import clsx from "clsx";
 
 export const metadata: Metadata = {
   title: "Blog - SK",
@@ -34,7 +35,7 @@ export default function RootLayout({
         href="/favicon/favicon-16x16.png"
       />
       <link rel="manifest" href="/site.webmanifest" />
-      <body className={inter.className}>
+      <body className={`${inter.className} main-container`}>
         <NavbarComponent />
         {children}
         <FooterComponent />

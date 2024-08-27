@@ -1,3 +1,4 @@
+import { ITag } from "@/lib/shared/interfaces";
 import { z } from "zod";
 
 // Interface for a single Comment
@@ -9,12 +10,6 @@ export interface IComment {
   publishedDate: string;
   parentCommentId?: number | null;
   status: "approved" | "pending" | "spam";
-}
-
-// Interface for a Tag
-export interface ITag {
-  id: number;
-  name: string;
 }
 
 // Interface for a BlogPost
