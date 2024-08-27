@@ -22,7 +22,7 @@
 }
 
 .about__info-text {
-    @apply mb-[2rem]
+    @apply mb-[4rem]
 }
 
 .about__info-profile {
@@ -30,7 +30,7 @@
 }
 
 .about__info-name {
-    @apply mb-[3rem] text-center
+    @apply mb-[1rem] text-center
 }
 
 .about__info-name h3 {
