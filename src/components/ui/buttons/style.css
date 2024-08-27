@@ -14,4 +14,8 @@
     .btn.btn-medium {
         @apply px-[1.85em] py-[0.85em] text-[1.5rem]
     }
+
+    .btn.btn-second.btn-transparent {
+        @apply bg-transparent text-second transition hover:bg-second hover:text-white
+    }
 }
