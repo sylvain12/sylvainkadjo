@@ -1,6 +1,7 @@
 @import "../components/index.css";
 @import "./posts/posts.css";
 @import "./projects/projects.css";
+@import "./about/about.css";
 
 
 @tailwind base;

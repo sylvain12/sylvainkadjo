@@ -1,0 +1,43 @@
+@layer components {
+.about {
+        @apply w-[475px] mx-auto py-[4rem] text-center
+    }
+
+/* ABOUT CONTACT */
+
+.about__contacts {
+    @apply flex flex-col justify-center items-center gap-[2rem]
+}
+.about__contacts-socials {
+    @apply flex gap-6 text-second
+}
+
+.about__contacts-email{
+@apply underline text-second text-[2.2rem]
+    }
+
+/* ABOUT INFO */
+.about__info {
+@apply mb-[4rem] border-b border-light pb-[4rem] flex flex-col items-center
+}
+
+.about__info-text {
+    @apply mb-[2rem]
+}
+
+.about__info-profile {
+@apply mb-[2rem]
+}
+
+.about__info-name {
+    @apply mb-[3rem] text-center
+}
+
+.about__info-name h3 {
+    @apply text-[2.5rem] font-semibold 
+}
+
+.about__info-name span {
+    @apply text-[1rem] font-normal uppercase
+}
+}
