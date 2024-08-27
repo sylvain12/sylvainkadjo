@@ -1,0 +1,9 @@
+@layer components {
+    .input-field {
+        @apply border rounded-none w-full
+    }
+
+    .input-field.input-field-medium {
+        @apply px-[1.85em] py-[0.85em] text-[1.5rem]
+    }
+}
