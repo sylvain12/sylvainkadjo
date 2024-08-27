@@ -18,11 +18,10 @@ export default function ProjectsListComponent() {
     const fetchData = async () => {
       const [data, err] = await execute();
       if (err) return;
-      console.log(data);
       setProjects(data);
     };
     fetchData();
-  }, []);
+  }, [setProjects]);
 
   return (
     <div className="projects__list">
