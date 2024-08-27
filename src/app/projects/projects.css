@@ -1,0 +1,60 @@
+@layer components {
+    .projects {
+        @apply w-[1035px] mx-auto py-[4rem]
+    }
+
+    /* POSTS HEADER */
+    .projects__header {
+        @apply mb-[6rem]
+    }
+
+    .projects__header-title {
+        @apply text-[6rem] font-thin
+    }
+
+    .projects__header-text {
+        @apply text-[2rem] max-w-[525px] mb-[2rem]
+    }
+
+    .projects__header-link {
+        @apply flex items-center gap-2 underline text-main text-[2rem]
+    }
+
+    /* SIDEBAR */
+    .projects__sidebar {
+        @apply border-l border-light p-[4rem]
+    }
+
+    /* CONTENT */
+    .projects__content {
+        /* @apply p-[4rem] */
+    }
+
+    .projects__list-item {
+        @apply p-[2rem] relative w-full h-[180px]  bg-light rounded-[5px] grid items-center transition;
+    }
+
+    .projects__list-item-category {
+        @apply text-second text-[1.3rem] font-semibold uppercase underline
+    }
+
+    .projects__list-item-name {
+        @apply text-[2.2rem] font-semibold
+    }
+
+    .projects__list-item-description  {
+        @apply mb-2
+    }
+
+    .projects__list-item-links {
+        @apply absolute right-[2rem] top-[2rem] flex gap-4 text-second font-bold
+    }
+
+    .projects__list-item-tags {
+        @apply flex gap-2
+    }
+
+    .projects__list-item-tags span {
+        @apply bg-white px-3 py-2 rounded-[5px] text-[1.2rem]
+    }
+}

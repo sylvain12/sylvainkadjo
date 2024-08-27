@@ -1,5 +1,7 @@
 import { faker } from "@faker-js/faker";
-import { IComment, ITag, IBlogPost } from "@/app/posts/models/types";
+import { IComment, IBlogPost } from "@/app/posts/models/types";
+import { ITag } from "./shared/interfaces";
+import { IProject } from "@/app/projects/models/types";
 
 // Function to generate a fake comment
 const generateFakeComment = (
@@ -46,7 +48,32 @@ const generateFakePost = (): IBlogPost => {
   };
 };
 
-// Generate an array of fake blog posts
-const fakePosts: IBlogPost[] = Array.from({ length: 4 }, generateFakePost);
+// Generate fake project
+const generateFakeProject = (): IProject => {
+  return {
+    id: faker.datatype.number(),
+    name: faker.commerce.productName(),
+    description: faker.lorem.sentence(6),
+    tags: Array.from({ length: 3 }, generateFakeTag),
+    githubLink: faker.internet.url(),
+    projectLink: faker.internet.url(),
+    category: faker.helpers.arrayElement([
+      "package",
+      "data",
+      "software",
+      "design",
+    ]),
+  };
+};
 
-export default fakePosts;
+// Generate an array of fake projects
+export const fakeProjects: IProject[] = Array.from(
+  { length: 5 },
+  generateFakeProject
+);
+
+// Generate an array of fake blog posts
+export const fakePosts: IBlogPost[] = Array.from(
+  { length: 4 },
+  generateFakePost
+);

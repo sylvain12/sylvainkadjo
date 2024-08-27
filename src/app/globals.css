@@ -1,5 +1,7 @@
 @import "../components/index.css";
 @import "./posts/posts.css";
+@import "./projects/projects.css";
+
 
 @tailwind base;
 @tailwind components;
@@ -15,6 +17,8 @@
   --color-second: #4D7AA4;
   --color-light: #eeeeee;
   --bg-gradient: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(6, 57, 112, 0.2) 100%);
+
+  --ff-serif: "Playfair Display", serif;
 }
 
 @media (prefers-color-scheme: light) {
@@ -115,4 +119,49 @@ a {
 .posts__content {
     grid-column: 2/ 3;
     padding: 6rem 0;
+}
+
+/* PROJECTS */
+/* .projects {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  grid-template-rows: 1fr;
+}
+
+.projects__content {
+  grid-column: 1 / 2;
+  grid-row: 1/ -1;
+}
+
+.projects__sidebar {
+    grid-column: 2 / -1;
+    grid-row: 1/ -1;
+} */
+
+.projects__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+  row-gap: 6rem;
+  grid-auto-flow: row;
+}
+
+.projects__list-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 95%;
+    height: 95%;
+    background: var(--color-second);
+    -webkit-transform: translate(18px, -5px) rotate(-5deg);
+    -ms-transform: translate(18px, -5px) rotate(-5deg);
+    transform: translate(18px, -5px) rotate(-5deg);
+    border-radius: inherit;
+    z-index: -1;
+    transition: transform .2s;
+}
+
+.projects__list-item:hover::before {
+  transform: rotate(0deg);
 }
