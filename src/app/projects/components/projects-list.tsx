@@ -21,7 +21,7 @@ export default function ProjectsListComponent() {
       setProjects(data);
     };
     fetchData();
-  }, [setProjects]);
+  }, [setProjects, execute]);
 
   return (
     <div className="projects__list">

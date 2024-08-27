@@ -22,7 +22,7 @@ export default function PostsContent() {
       setPosts(data);
     };
     fetchData();
-  }, [setPosts]);
+  }, [setPosts, execute]);
 
   return (
     <div className="posts__content">
