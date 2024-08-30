@@ -31,27 +31,27 @@
     }
 
     .projects__list-item {
-        @apply p-[2rem] relative w-full h-[180px]  bg-light rounded-[5px] grid items-center transition;
+        @apply p-[2rem] relative w-full h-[190px]  bg-light rounded-[5px] flex flex-col justify-center transition;
     }
 
     .projects__list-item-category {
-        @apply text-second text-[1.3rem] font-semibold uppercase underline
+        @apply text-second text-[1.3rem] font-semibold uppercase underline mb-3
     }
 
     .projects__list-item-name {
-        @apply text-[2.2rem] font-semibold
+        @apply text-[2.2rem] font-semibold mb-1
     }
 
     .projects__list-item-description  {
-        @apply mb-2
+        @apply mb-[1.5rem]
     }
 
     .projects__list-item-links {
-        @apply absolute right-[2rem] top-[2rem] flex gap-4 text-second font-bold
+        @apply absolute right-[2rem] top-[1.8rem] flex gap-6 text-second font-bold
     }
 
     .projects__list-item-tags {
-        @apply flex gap-2
+        @apply flex flex-wrap gap-2
     }
 
     .projects__list-item-tags span {

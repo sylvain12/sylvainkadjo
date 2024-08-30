@@ -1,9 +1,14 @@
 "use server";
 
-import { fakeProjects } from "@/lib/fake-data";
 import { createServerAction } from "zsa";
+import { createClient } from "@/lib/utils/supabase/server";
+import { IProject } from "./models/types";
 
-export const fetchProjects = createServerAction().handler(async () => {
-  await new Promise((resolve) => setTimeout(resolve, 500));
-  return fakeProjects;
+export const fetchProjectsProcedure = createServerAction().handler(async () => {
+  const supabase = createClient();
+  const { data, error } = await supabase
+    .from("projects")
+    .select(`*, tags (id, name)`)
+    .returns<IProject[]>();
+  return data;
 });

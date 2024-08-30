@@ -6,7 +6,7 @@ export const ProjectSchema = z.object({
   name: z.string(),
   description: z.string(),
   tags: TagSchema,
-  githubLink: z.optional(z.string()).nullable(),
-  projectLink: z.optional(z.string()).nullable(),
+  repository: z.optional(z.string()).nullable(),
+  website: z.optional(z.string()).nullable(),
   category: z.enum(["package", "data", "software", "design"]),
 });

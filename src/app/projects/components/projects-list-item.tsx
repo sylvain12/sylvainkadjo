@@ -15,12 +15,28 @@ export default function ProjectsListItemComponent({
       <h3 className="projects__list-item-name">{project.name}</h3>
       <p className="projects__list-item-description">{project.description}</p>
       <div className="projects__list-item-links">
-        <Link target="_blank" href={project.githubLink!}>
-          <Icon icon="uit:github-alt" width={24} />
-        </Link>
-        <Link target="_blank" href={project.projectLink!}>
-          <Icon icon="fluent:open-20-regular" width={24} />
-        </Link>
+        {project.repository && (
+          <Link
+            className="cursor-pointer"
+            target="_blank"
+            href={project.repository!}
+          >
+            <Icon className="cursor-pointer" icon="uit:github-alt" width={30} />
+          </Link>
+        )}
+        {project.website && (
+          <Link
+            className="cursor-pointer"
+            target="_blank"
+            href={project.website!}
+          >
+            <Icon
+              className="cursor-pointer"
+              icon="fluent:open-20-regular"
+              width={30}
+            />
+          </Link>
+        )}
       </div>
       <div className="projects__list-item-tags">
         {project.tags &&
