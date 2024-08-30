@@ -60,7 +60,7 @@ body { */
 body {
   background-color: var(--bg-white);
   color: var(--text-color);
-  font-size: 1.6rem;
+  font-size: 1.5rem;
 }
 
 a {
