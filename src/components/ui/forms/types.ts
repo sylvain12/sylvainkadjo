@@ -10,4 +10,6 @@ export interface InputProps {
   required?: boolean;
   className?: string;
   size?: "small" | "medium" | "large";
+  hasError?: boolean;
+  errorMessage?: string;
 }

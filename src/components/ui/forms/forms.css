@@ -1,6 +1,10 @@
 @layer components {
+    .input-wrapper {
+        @apply flex flex-col w-full gap-4 items-start
+    }
+
     .input-field {
-        @apply border rounded-none w-full
+        @apply border rounded-none w-full 
     }
 
     .input-field.input-field-medium {

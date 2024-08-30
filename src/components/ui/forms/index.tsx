@@ -13,6 +13,8 @@ export const Input: React.FC<InputProps> = ({
   required = false,
   className = "",
   size = "medium",
+  hasError = false,
+  errorMessage = "",
 }) => {
   return (
     <div className={`input-wrapper ${className}`}>
@@ -30,8 +32,11 @@ export const Input: React.FC<InputProps> = ({
         name={name}
         disabled={disabled}
         required={required}
-        className={`input-field input-field-${size}`}
+        className={`input-field input-field-${size} ${
+          hasError && "border-red-500 "
+        }`}
       />
+      {hasError && <span className={`text-red-400`}>{errorMessage}</span>}
     </div>
   );
 };
