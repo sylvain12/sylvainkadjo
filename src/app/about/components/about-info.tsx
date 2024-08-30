@@ -15,14 +15,15 @@ export default function AboutInfoComponent() {
         onLoad={() => <div>Loading...</div>}
       />
       <div className="about__info-name">
-        <h3>Sylvain KADJO 👋🏽🤗</h3>
+        <h3>Here Sylvain KADJO 👋🏽🤗</h3>
         <span>The guy with smile</span>
       </div>
 
       <p className="about__info-text">
-        I love new challenges, sharing experience, so if you want me for your
-        next project, or if you want to share your experience with me,
-        don&lsquo;t hesitate, contact me now.
+        I thrive on new challenges and love sharing my experience with others.
+        If you&lsquo;re looking for someone to collaborate on your next project
+        or simply want to exchange ideas, don&lsquo;t hesitate to reach out.
+        Let&lsquo;s connect !
       </p>
 
       <Button
