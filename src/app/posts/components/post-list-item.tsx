@@ -2,7 +2,7 @@ import { IBlogPost } from "../models/types";
 import { Icon } from "@iconify/react";
 import { DateTime } from "luxon";
 import Image from "next/image";
-import { formatNumberWithK } from "../../../lib/utils";
+import { formatNumberWithK } from "@/lib/utils/utils";
 import Link from "next/link";
 
 export type PostListItemProp = {
