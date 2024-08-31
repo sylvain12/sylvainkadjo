@@ -8,34 +8,62 @@ import { validateEmail } from "@/lib/utils/utils";
 import { useFormErrorStore } from "@/lib/store/error";
 import { subscribeAction } from "./action";
 import { useServerAction } from "zsa-react";
+import { toast, Toaster } from "sonner";
+import { supabaseDuplicateValueCode } from "@/lib/shared/constant";
 
 export default function NewsletterComponent() {
   const { subscriber, setSubscriber } = useSubscriberStore();
   const { hasError, errorMessage, setError, resetForm } = useFormErrorStore();
-  const { isPending, execute } = useServerAction(subscribeAction, {
-    onError: ({ err }) => console.log(err),
-    onSuccess: ({ data }) => console.log(data),
-  });
+  const { isPending, execute } = useServerAction(subscribeAction);
 
   const handleSubscribe = async () => {
     if (validateEmail(subscriber)) {
-      const [data, error] = await execute({ email: subscriber });
-      if (error) {
-        setError(error.message);
-        return;
-      }
-      resetForm();
+      const promise = () =>
+        new Promise<{ message: string }>((resolve, reject) => {
+          execute({ email: subscriber })
+            .then(([data, error]) => {
+              if (data?.error) {
+                if (data?.error?.code! == supabaseDuplicateValueCode) {
+                  resolve({
+                    message:
+                      "You're already subscribed! Thanks for your interest",
+                  });
+                } else {
+                  reject("There was an error. Please try again.");
+                }
+              } else {
+                resetForm();
+                setSubscriber("");
+                resolve({ message: `Thank you for subscribing!` });
+              }
+            })
+            .catch(() => "There was an error. Please try again.");
+        });
+
+      toast.promise(promise, {
+        loading: "Subscribing",
+        success: (res) => {
+          return res.message;
+        },
+        error: (err) => {
+          setError("");
+          return err;
+        },
+      });
     } else {
       setError("Please enter a valid email address.");
     }
 
     return () => {
       resetForm();
+      setSubscriber("");
     };
   };
 
   return (
     <div className="newsletter">
+      <Toaster position="bottom-center" richColors closeButton />
+      {isPending ? "true" : "false"}
       <div>
         <p className="text-[2.1rem]">
           Subscribe to{" "}
@@ -68,7 +96,9 @@ export default function NewsletterComponent() {
           variant="second"
           type="button"
           onClick={handleSubscribe}
-          className={isPending ? "pointer-events-none opacity-5" : ""}
+          className={
+            isPending ? "pointer-events-none opacity-5 cursor-wait" : ""
+          }
         />
       </div>
     </div>

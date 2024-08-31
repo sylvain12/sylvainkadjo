@@ -51,3 +51,9 @@ export const navSocialsLinks = [
     link: "https://www.linkedin.com/in/sylvain-kadjo-374a4911b/",
   },
 ];
+
+export const supabaseErrorMessage = {
+  "23505": "You're already subscribed! Thanks for your interest.",
+};
+
+export const supabaseDuplicateValueCode = "23505";
