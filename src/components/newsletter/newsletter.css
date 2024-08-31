@@ -4,6 +4,6 @@
     }
 
     .newsletter__form {
-        @apply flex
+        @apply flex max-w-[85%] w-full items-start
     }
 }
