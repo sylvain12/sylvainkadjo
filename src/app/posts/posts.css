@@ -6,7 +6,7 @@
     }
 
     .posts__header-text {
-        @apply text-[2.5rem] font-light
+        @apply text-[1.8rem] font-normal
     }
 
     /* POST CONTENT */

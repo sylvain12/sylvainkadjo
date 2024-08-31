@@ -2,13 +2,10 @@ export default function PostsHeaderComponent() {
   return (
     <div className="posts__header">
       <div className="posts__header-text">
+        <h1 className="text-[4rem] font-thin">Blog</h1>
         <p>
-          Craft contents ✍🏽 that ignite{" "}
-          <span className="text-main font-bold">inspiration</span> 💡,
-        </p>
-        <p>
-          <span className="text-main font-bold">knowledge</span> 📘, and{" "}
-          <span className="text-main font-bold">vision</span> 🏗️.
+          Discover Our Latest{" "}
+          <span className="font-bold text-second underline">Stories</span>{" "}
         </p>
       </div>
     </div>
