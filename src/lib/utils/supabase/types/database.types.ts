@@ -1,21 +1,193 @@
-import { MergeDeep } from "type-fest";
-import { Database as DatabaseGenerated } from "./database-generated.types";
-import { Json } from "./database-generated.types";
+export type Json =
+  | string
+  | number
+  | boolean
+  | null
+  | { [key: string]: Json | undefined }
+  | Json[];
 
-export type Database = MergeDeep<
-  DatabaseGenerated,
-  {
-    public: {
-      Views: {
-        projects_view: {
-          Row: {
-            id: string;
-          };
+export type Database = {
+  public: {
+    Tables: {
+      post_tags: {
+        Row: {
+          post_id: string;
+          tag_id: string;
         };
+        Insert: {
+          post_id: string;
+          tag_id: string;
+        };
+        Update: {
+          post_id?: string;
+          tag_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "post_tags_post_id_fkey";
+            columns: ["post_id"];
+            isOneToOne: false;
+            referencedRelation: "posts";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "post_tags_tag_id_fkey";
+            columns: ["tag_id"];
+            isOneToOne: false;
+            referencedRelation: "tags";
+            referencedColumns: ["id"];
+          }
+        ];
+      };
+      posts: {
+        Row: {
+          author: string;
+          content: string | null;
+          excerpt: string | null;
+          featureImageUrl: string | null;
+          id: string;
+          isShowcase: boolean;
+          likes: number | null;
+          publishedDate: string | null;
+          slug: string | null;
+          status: Database["public"]["Enums"]["epostsstatus"] | null;
+          title: string;
+          updatedDate: string | null;
+          views: number | null;
+        };
+        Insert: {
+          author?: string;
+          content?: string | null;
+          excerpt?: string | null;
+          featureImageUrl?: string | null;
+          id?: string;
+          isShowcase?: boolean;
+          likes?: number | null;
+          publishedDate?: string | null;
+          slug?: string | null;
+          status?: Database["public"]["Enums"]["epostsstatus"] | null;
+          title: string;
+          updatedDate?: string | null;
+          views?: number | null;
+        };
+        Update: {
+          author?: string;
+          content?: string | null;
+          excerpt?: string | null;
+          featureImageUrl?: string | null;
+          id?: string;
+          isShowcase?: boolean;
+          likes?: number | null;
+          publishedDate?: string | null;
+          slug?: string | null;
+          status?: Database["public"]["Enums"]["epostsstatus"] | null;
+          title?: string;
+          updatedDate?: string | null;
+          views?: number | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "posts_author_fkey";
+            columns: ["author"];
+            isOneToOne: false;
+            referencedRelation: "users";
+            referencedColumns: ["id"];
+          }
+        ];
+      };
+      project_tags: {
+        Row: {
+          project_id: string;
+          tag_id: string;
+        };
+        Insert: {
+          project_id: string;
+          tag_id: string;
+        };
+        Update: {
+          project_id?: string;
+          tag_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "project_tags_project_id_fkey";
+            columns: ["project_id"];
+            isOneToOne: false;
+            referencedRelation: "projects";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "project_tags_tag_id_fkey";
+            columns: ["tag_id"];
+            isOneToOne: false;
+            referencedRelation: "tags";
+            referencedColumns: ["id"];
+          }
+        ];
+      };
+      projects: {
+        Row: {
+          category: Database["public"]["Enums"]["ecategory"];
+          description: string | null;
+          id: string;
+          name: string;
+          repository: string | null;
+          website: string | null;
+        };
+        Insert: {
+          category: Database["public"]["Enums"]["ecategory"];
+          description?: string | null;
+          id?: string;
+          name: string;
+          repository?: string | null;
+          website?: string | null;
+        };
+        Update: {
+          category?: Database["public"]["Enums"]["ecategory"];
+          description?: string | null;
+          id?: string;
+          name?: string;
+          repository?: string | null;
+          website?: string | null;
+        };
+        Relationships: [];
+      };
+      tags: {
+        Row: {
+          id: string;
+          name: string;
+        };
+        Insert: {
+          id?: string;
+          name?: string;
+        };
+        Update: {
+          id?: string;
+          name?: string;
+        };
+        Relationships: [];
       };
     };
-  }
->;
+    Views: {
+      [_ in never]: never;
+    };
+    Functions: {
+      generate_slug: {
+        Args: {
+          input_text: string;
+        };
+        Returns: string;
+      };
+    };
+    Enums: {
+      ecategory: "software" | "data & ai" | "design" | "package";
+      epostsstatus: "draft" | "published" | "archived";
+    };
+    CompositeTypes: {
+      [_ in never]: never;
+    };
+  };
+};
 
 type PublicSchema = Database[Extract<keyof Database, "public">];
 

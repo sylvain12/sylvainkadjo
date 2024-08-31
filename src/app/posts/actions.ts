@@ -1,12 +1,15 @@
 "use server";
 
-import { fakePosts } from "@/lib/fake-data";
 import { createServerAction } from "zsa";
-import { BlogPostSchema } from "@/app/posts/models/shemas";
-import { z } from "zod";
+import { createClient } from "@/lib/utils/supabase/server";
 import { IBlogPost } from "@/app/posts/models/types";
 
-export const fetchPosts = createServerAction().handler(async () => {
-  await new Promise((resolve) => setTimeout(resolve, 500));
-  return fakePosts;
+export const fetchPostsAction = createServerAction().handler(async () => {
+  const supabase = createClient();
+  const { data } = await supabase
+    .from("posts")
+    .select(`*, tags (id, name), author:users (id, first_name, last_name)`)
+    .filter("status", "eq", "published")
+    .returns<IBlogPost[]>();
+  return data;
 });

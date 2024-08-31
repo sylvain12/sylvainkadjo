@@ -9,6 +9,12 @@ export interface INavigationLinkItem {
 
 // Interface for a Tag
 export interface ITag {
-  id: number;
+  id: string;
   name: string;
+}
+
+export interface IUser {
+  id: string;
+  first_name: string;
+  last_name: string;
 }

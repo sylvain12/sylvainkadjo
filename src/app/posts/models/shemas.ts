@@ -1,4 +1,4 @@
-import { TagSchema } from "@/lib/shared/schemas";
+import { TagSchema, UserSchema } from "@/lib/shared/schemas";
 import { z } from "zod";
 
 export const CommentSchema = z.object({
@@ -15,7 +15,7 @@ export const BlogPostSchema = z.object({
   id: z.number(),
   title: z.string(),
   slug: z.string(),
-  author: z.string(),
+  author: UserSchema,
   content: z.string(),
   excerpt: z.string(),
   publishedDate: z.string(),

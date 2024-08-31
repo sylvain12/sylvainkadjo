@@ -1,4 +1,4 @@
-import { ITag } from "@/lib/shared/interfaces";
+import { ITag, IUser } from "@/lib/shared/interfaces";
 import { z } from "zod";
 
 // Interface for a single Comment
@@ -17,7 +17,7 @@ export interface IBlogPost {
   id: number;
   title: string;
   slug: string;
-  author: string;
+  author: IUser;
   content: string;
   excerpt: string;
   publishedDate: string;
@@ -26,8 +26,8 @@ export interface IBlogPost {
   featuredImageUrl: string;
   status: "draft" | "published" | "archived";
   views: number;
-  commentsEnabled: boolean;
-  comments: IComment[];
+  // commentsEnabled: boolean;
+  // comments: IComment[];
   likes: number;
-  image: string;
+  isShowcase?: boolean;
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useServerAction } from "zsa-react";
-import { fetchPosts } from "../actions";
+import { fetchPostsAction } from "../actions";
 import { useEffect, useState } from "react";
 import { IBlogPost } from "../models/types";
 import PostListComponent from "./post-list";
@@ -10,16 +10,20 @@ import PostSpotlightComponent from "./post-spotlight";
 
 export default function PostsContent() {
   const [posts, setPosts] = useState<IBlogPost[]>([]);
-  const { isPending, execute, data } = useServerAction(fetchPosts, {
+  const [showCasepost, setShowcasepost] = useState<IBlogPost>();
+
+  const { isPending, execute } = useServerAction(fetchPostsAction, {
     onError: ({ err }) => console.log(err.message),
-    onSuccess: () => console.log("success"),
+    onSuccess: ({ data }) => console.log(`${data.length} posts loaded!`),
   });
 
   useEffect(() => {
     const fetchData = async () => {
       const [data, err] = await execute();
       if (err) return;
-      setPosts(data);
+      console.log(data);
+      setPosts(data! || []);
+      setShowcasepost(data?.filter((post) => post.isShowcase)[0]);
     };
     fetchData();
   }, [setPosts, execute]);
@@ -30,7 +34,7 @@ export default function PostsContent() {
         <PostLoaderComponent />
       ) : (
         <>
-          {<PostSpotlightComponent post={posts.slice(0, 1)[0]} />}
+          {<PostSpotlightComponent post={showCasepost!} />}
           <PostListComponent posts={posts.slice(1)} />
         </>
       )}

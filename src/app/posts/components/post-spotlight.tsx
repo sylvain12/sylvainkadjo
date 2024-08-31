@@ -13,18 +13,20 @@ export default function PostSpotlightComponent({ post }: PostSpotlightProp) {
       {post && (
         <div>
           <div className="w-full h-300 mb-[2rem]">
-            <Image
-              src={post.image}
-              width={500}
-              height={300}
-              style={{
-                objectFit: "cover",
-                width: "100%",
-                height: "300px",
-                objectPosition: "center",
-              }}
-              alt={post.title}
-            />
+            {post.featuredImageUrl && (
+              <Image
+                src={post.featuredImageUrl}
+                width={500}
+                height={300}
+                style={{
+                  objectFit: "cover",
+                  width: "100%",
+                  height: "300px",
+                  objectPosition: "center",
+                }}
+                alt={post.title}
+              />
+            )}
           </div>
           <div>
             <h1 className="text-[3rem] mb-[1rem] font-semibold">
@@ -35,7 +37,8 @@ export default function PostSpotlightComponent({ post }: PostSpotlightProp) {
               <span>
                 {DateTime.fromISO(post.publishedDate).toFormat("LLL dd")}
               </span>{" "}
-              - <span className="uppercase">{post.author}</span>
+              -{" "}
+              <span className="uppercase">{`${post.author.first_name} ${post.author.last_name}`}</span>
             </p>
           </div>
         </div>
