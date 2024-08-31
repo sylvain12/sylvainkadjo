@@ -1,11 +1,11 @@
 @layer components {
     /* NAV LOGO */
     .navbar__logo {
-        padding-left: 2rem;
+        @apply pl-[2rem]
     }
     /* NAV MENU */
     .navbar__menu {
-        @apply flex items-center justify-center
+        @apply flex items-center justify-center h-full text-center
     }
 
     .navbar__menu-item {
@@ -18,10 +18,14 @@
 
     /* NAV RIGHT */
     .navbar__right {
-        @apply flex justify-end items-center gap-[4rem]
+        @apply flex justify-end items-center gap-[2rem] pr-[2rem] h-full
     }
 
     .navbar__right-search {
         @apply p-[2.5rem] border-l border-light cursor-pointer transition-colors hover:bg-light
+    }
+
+    .navbar__right-socials {
+        @apply flex gap-[1rem] text-second
     }
 }

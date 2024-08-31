@@ -38,3 +38,16 @@ export const socialsLinks = [
     link: "https://dribbble.com/sylvain12",
   },
 ];
+
+export const navSocialsLinks = [
+  {
+    label: "Github",
+    icon: "uit:github-alt",
+    link: "https://github.com/sylvain12",
+  },
+  {
+    label: "Linkedin",
+    icon: "iconoir:linkedin",
+    link: "https://www.linkedin.com/in/sylvain-kadjo-374a4911b/",
+  },
+];
