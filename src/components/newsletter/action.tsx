@@ -3,6 +3,7 @@ import { z } from "zod";
 
 import { createServerAction } from "zsa";
 import { createClient } from "@/lib/utils/supabase/server";
+import { sendEmail } from "@/lib/utils/email/send";
 
 export const subscribeAction = createServerAction()
   .input(z.object({ email: z.string() }))
@@ -12,5 +13,8 @@ export const subscribeAction = createServerAction()
       .from("subscribers")
       .insert({ email: input.email });
 
+    if (error == null) {
+      await sendEmail(input.email);
+    }
     return { data, error };
   });
