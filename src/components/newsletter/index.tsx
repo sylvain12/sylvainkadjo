@@ -15,6 +15,7 @@ export default function NewsletterComponent() {
   const { subscriber, setSubscriber } = useSubscriberStore();
   const { hasError, errorMessage, setError, resetForm } = useFormErrorStore();
   const { isPending, execute } = useServerAction(subscribeAction);
+  // const {} = useServerAction(sendEmailAction)
 
   const handleSubscribe = async () => {
     if (validateEmail(subscriber)) {
@@ -63,7 +64,6 @@ export default function NewsletterComponent() {
   return (
     <div className="newsletter">
       <Toaster position="bottom-center" richColors closeButton />
-      {isPending ? "true" : "false"}
       <div>
         <p className="text-[2.1rem]">
           Subscribe to{" "}
