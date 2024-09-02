@@ -10,33 +10,32 @@ import PostSpotlightComponent from "./post-spotlight";
 import { usePostStore } from "../store";
 
 export default function PostsContent() {
-  // const [posts, setPosts] = useState<IBlogPost[]>([]);
-  const { posts, setPosts } = usePostStore();
-  const [showCasepost, setShowcasepost] = useState<IBlogPost>();
+  const { posts, setPosts, showCasePost, setShowCasePost } = usePostStore();
 
-  const { isPending, execute } = useServerAction(fetchPostsAction, {
+  const { isPending, execute, data } = useServerAction(fetchPostsAction, {
     onError: ({ err }) => console.log(err.message),
     onSuccess: ({ data }) => console.log(`${data.length} posts loaded!`),
+    initialData: posts,
+    persistDataWhilePending: true,
   });
 
   useEffect(() => {
     const fetchData = async () => {
       const [data, err] = await execute();
       if (err) return;
-      console.log(data);
       setPosts(data! || []);
-      setShowcasepost(data?.filter((post) => post.isShowcase)[0]);
+      setShowCasePost(data?.filter((post) => post.isShowcase)[0]!);
     };
     fetchData();
   }, [setPosts, execute]);
 
   return (
     <div className="posts__content">
-      {isPending ? (
+      {isPending && data?.length === 0 ? (
         <PostLoaderComponent />
       ) : (
         <>
-          {<PostSpotlightComponent post={showCasepost!} />}
+          {<PostSpotlightComponent post={showCasePost!} />}
           <PostListComponent posts={posts.slice(1)} />
         </>
       )}

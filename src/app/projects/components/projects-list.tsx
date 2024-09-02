@@ -1,26 +1,26 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { IProject } from "../models/types";
 import { useServerAction } from "zsa-react";
 import { fetchProjectsProcedure } from "../actions";
 import ProjectLoaderComponent from "./project-loader";
 import ProjectsListItemComponent from "./projects-list-item";
+import { useProjectStore } from "../store";
 
 export default function ProjectsListComponent() {
-  const [projects, setProjects] = useState<IProject[]>([]);
+  const { projects, setProjects } = useProjectStore();
   const { isPending, execute, data } = useServerAction(fetchProjectsProcedure, {
     onError: ({ err }) => {
       throw err;
     },
-    onSuccess: ({ data }) => console.log(data),
-    // onSuccess: ({ data }) => console.log(`${data.length} projects loaded!`),
+    onSuccess: ({ data }) => console.log(`${data.length} projects loaded!`),
+    initialData: projects,
+    persistDataWhilePending: true,
   });
 
   useEffect(() => {
     const fetchData = async () => {
       const [data] = await execute();
-      console.log(data);
       setProjects(data! || []);
     };
     fetchData();
@@ -28,7 +28,7 @@ export default function ProjectsListComponent() {
 
   return (
     <div className="projects__list">
-      {isPending ? (
+      {isPending && data?.length === 0 ? (
         <ProjectLoaderComponent />
       ) : (
         projects &&

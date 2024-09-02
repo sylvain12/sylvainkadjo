@@ -10,7 +10,10 @@ import PostDetailsLoaderComponent from "./components/post-details-loader";
 
 export default function PostViewComponent() {
   const { showedPost, setShowedPost } = usePostStore();
-  const { isPending, execute } = useServerAction(getPostAction);
+  const { isPending, execute, data } = useServerAction(getPostAction, {
+    persistDataWhilePending: true,
+    initialData: showedPost!,
+  });
   const pathname = usePathname();
   const slug = pathname.replace("/", "");
 
@@ -25,7 +28,7 @@ export default function PostViewComponent() {
 
   return (
     <div className="post-details__container">
-      {isPending ? (
+      {isPending && data === null ? (
         <PostDetailsLoaderComponent />
       ) : (
         <PostDetailsComponent post={showedPost!} />
