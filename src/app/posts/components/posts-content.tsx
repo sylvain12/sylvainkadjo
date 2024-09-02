@@ -27,7 +27,7 @@ export default function PostsContent() {
       setShowCasePost(data?.filter((post) => post.isShowcase)[0]!);
     };
     fetchData();
-  }, [setPosts, execute]);
+  }, [setPosts, execute, setShowCasePost]);
 
   return (
     <div className="posts__content">

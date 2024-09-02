@@ -25,7 +25,7 @@ export default function PostViewComponent() {
       setShowedPost(data!);
     };
     fetchData();
-  }, [setShowedPost, execute]);
+  }, [setShowedPost, execute, slug]);
 
   return (
     <div className="post-details__container">
