@@ -48,7 +48,7 @@ export default function DashboardTableComponent({
                 >
                   <th
                     scope="row"
-                    className="px-6 py-8 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    className="px-6 py-8 font-medium text-gray-900 whitespace-nowrap"
                   >
                     {post.title}
                   </th>
