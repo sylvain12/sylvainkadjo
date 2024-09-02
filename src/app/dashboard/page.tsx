@@ -25,7 +25,7 @@ export default function Dashboard() {
   }, [setPosts, execute]);
 
   return (
-    <div className="dashboard__container">
+    <>
       <section className="dashboard__section">
         <div className="dashboard__section-header">
           <h1 className="dashboard__section-tilte">All Posts</h1>
@@ -41,6 +41,6 @@ export default function Dashboard() {
         </div>
         <DashboardTableComponent posts={posts} />
       </section>
-    </div>
+    </>
   );
 }

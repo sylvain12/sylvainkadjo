@@ -78,7 +78,7 @@ export default function DashboardTableComponent({
                   </td>
                   <td className="px-6 py-4 text-right">
                     <a
-                      href="#"
+                      href={`/dashboard/posts/${post.slug}`}
                       className="font-medium text-[1.8rem] text-second hover:underline flex items-center gap-3 uppercase"
                     >
                       <Icon

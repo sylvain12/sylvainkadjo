@@ -13,6 +13,16 @@
     }
 
     .dashboard__section-header h1 {
-        @apply text-[3.2rem]
+        @apply text-[3.2rem] font-thin
     }
+
+/* DASHBOAD POST EDIT */
+.dashboard__post-edit {
+    @apply mx-auto max-w-[856px]
+}
+.dashboard__post-edit__header-back {
+    @apply flex  items-center text-[2rem] gap-2 font-thin cursor-pointer hover:underline
+}
+
+
 }
