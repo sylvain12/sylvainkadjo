@@ -19,7 +19,8 @@ export default function PostListItemComponent({ post }: PostListItemProp) {
           <span>
             {DateTime.fromISO(post.publishedDate).toFormat("LLL dd, yyyy")}
           </span>{" "}
-          - <span className="uppercase">{post.author}</span>
+          -{" "}
+          <span className="uppercase">{`${post.author.first_name} ${post.author.last_name}`}</span>
         </p>
 
         <div className="posts__list-item__footer">
@@ -32,10 +33,10 @@ export default function PostListItemComponent({ post }: PostListItemProp) {
               <Icon icon="circum:heart" width={16} />
               {formatNumberWithK(post.likes)}
             </div>
-            <div className="posts__list-item__footer-left-reaction">
+            {/* <div className="posts__list-item__footer-left-reaction">
               <Icon icon="iconamoon:comment-thin" width={14} />
               {formatNumberWithK(post.comments.length)}
-            </div>
+            </div> */}
             {/* <div>{post.likes}</div> */}
           </div>
         </div>
@@ -43,7 +44,7 @@ export default function PostListItemComponent({ post }: PostListItemProp) {
 
       <div className="posts__list-item__image">
         <Image
-          src={post.image}
+          src={post.featuredImageUrl}
           width={150}
           height={150}
           alt={post.title}

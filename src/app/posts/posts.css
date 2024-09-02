@@ -85,6 +85,22 @@
     /* POST SPOTLIGHT */
 
     .posts__spotlight {
-        @apply border-b border-light mb-[4rem] pb-[4rem]
+        @apply border-b border-light mb-[4rem] pb-[2rem]
+    }
+
+    .posts__spotlight-title {
+        @apply text-[3rem] mb-[1rem] font-semibold
+    }
+
+    .posts__spotlight-content:hover .posts__spotlight-title {
+        @apply underline
+    }
+
+    .posts__spotlight:hover .posts__spotlight-footer {
+        @apply opacity-100 flex
+    }
+
+    .posts__spotlight-footer {
+        @apply flex opacity-0 items-center justify-between  mt-[1rem]
     }
 }
