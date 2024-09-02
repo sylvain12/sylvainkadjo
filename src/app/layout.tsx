@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { roboto, inter, sora } from "@/lib/shared/fonts";
+import { inter, sora, archivo } from "@/lib/shared/fonts";
 import "./globals.css";
 import NavbarComponent from "@/components/navbar";
 import FooterComponent from "@/components/footer";
