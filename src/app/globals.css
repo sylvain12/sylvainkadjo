@@ -4,6 +4,7 @@
 @import "./about/about.css";
 @import "./p/[slug]/post.css";
 @import "./dashboard/dashboard.css";
+@import "../lib/utils/tiptap/tiptap.css";
 
 
 @tailwind base;
@@ -35,6 +36,14 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer base {
+
+  ul,
+  ol {
+    list-style: revert;
   }
 }
 
@@ -171,4 +180,50 @@ a {
 
 .projects__list-item:hover::before {
   transform: rotate(0deg);
+}
+
+/* TITAP EDITOR */
+/* TOOLBAR */
+
+.tiptap__toolbar {
+
+}
+.tiptap__toolbar-buttons {
+  display: flex;
+  align-items:center;
+  justify-content: center;
+flex-wrap: wrap;
+padding: 1.25rem 2.25rem;
+box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+background-color: #eeeeee;
+
+}
+
+.tiptap__toolbar-buttons button {
+padding: 8px; 
+border-radius: 4px;
+transition: background .2s;
+cursor: pointer;
+} 
+
+.tiptap__toolbar-buttons button:disabled {
+  opacity: .16;
+  pointer-events: none;
+cursor: not-allowed;
+}
+
+.tiptap__toolbar-buttons button:hover, .tiptap__toolbar-buttons button.is-active {
+  background: #fff;
+box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+}
+
+.tiptap__toolbar-group {
+display: flex;
+  align-items: center;
+    justify-content: center;
+padding: 0 1.2rem;
+}
+
+.tiptap__toolbar-group:not(:last-child) {
+border-right: 1px solid #cecece;
 }

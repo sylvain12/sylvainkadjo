@@ -1,3 +1,4 @@
+import Tiptap from "@/lib/utils/tiptap";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 
@@ -17,6 +18,10 @@ export default function DashboardPostEditComponent() {
             </Link>
           </div>
         </div>
+      </section>
+
+      <section className="tiptap">
+        <Tiptap />
       </section>
     </div>
   );
