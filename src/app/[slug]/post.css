@@ -1,0 +1,40 @@
+@layer components {
+
+.post-details__container {
+    @apply w-[650px] mx-auto py-[6rem] text-[1.8rem]
+}
+
+/* POST DETAILS */
+    .post-details__header {
+        @apply mb-[8rem]
+    }
+
+.post-details__header-title {
+    @apply text-[4rem] font-bold mb-8 leading-[42px]
+ }
+
+.post-details__header-description {
+    @apply mb-8
+ }
+
+.post-details__header-author {
+    @apply font-thin text-[1.4rem] mb-8
+}
+
+.post-details__header-tags {
+    @apply flex gap-2 text-[1.2rem]
+}
+
+.post-details__header-tags {
+        @apply flex flex-wrap gap-2
+    }
+
+    .post-details__header-tags span {
+        @apply bg-slate-200 px-3 py-2 rounded-[5px] text-[1.2rem]
+    }
+
+.post-details__loader-items:not(:last-child) {
+    @apply mb-[4rem]
+}
+
+}

@@ -38,7 +38,7 @@ export default function PostSpotlightComponent({ post }: PostSpotlightProp) {
                 {DateTime.fromISO(post.publishedDate).toFormat("LLL dd")}
               </span>{" "}
               -{" "}
-              <span className="uppercase">{`${post.author.first_name} ${post.author.last_name}`}</span>
+              <span className="uppercase font-normal">{`${post.author.first_name} ${post.author.last_name}`}</span>
             </p>
           </Link>
           <div className="posts__spotlight-footer">

@@ -7,9 +7,11 @@ import { IBlogPost } from "../models/types";
 import PostListComponent from "./post-list";
 import PostLoaderComponent from "./post-loader";
 import PostSpotlightComponent from "./post-spotlight";
+import { usePostStore } from "../store";
 
 export default function PostsContent() {
-  const [posts, setPosts] = useState<IBlogPost[]>([]);
+  // const [posts, setPosts] = useState<IBlogPost[]>([]);
+  const { posts, setPosts } = usePostStore();
   const [showCasepost, setShowcasepost] = useState<IBlogPost>();
 
   const { isPending, execute } = useServerAction(fetchPostsAction, {

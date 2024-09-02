@@ -85,7 +85,7 @@
     /* POST SPOTLIGHT */
 
     .posts__spotlight {
-        @apply border-b border-light mb-[4rem] pb-[2rem]
+        @apply border-b border-light mb-[4rem] pb-[4rem]
     }
 
     .posts__spotlight-title {
@@ -97,10 +97,10 @@
     }
 
     .posts__spotlight:hover .posts__spotlight-footer {
-        @apply opacity-100 flex
+        @apply opacity-100 hidden
     }
 
     .posts__spotlight-footer {
-        @apply flex opacity-0 items-center justify-between  mt-[1rem]
+        @apply hidden opacity-0 items-center justify-between  mt-[1rem]
     }
 }
