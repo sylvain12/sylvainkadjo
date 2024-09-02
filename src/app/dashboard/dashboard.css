@@ -1,0 +1,18 @@
+@layer components {
+    .dashboard__container {
+    @apply  py-[10rem] px-[25rem]
+    }
+
+    /* DASHBOARD SECTION */
+    .dashboard__section:not(:last-child) {
+        @apply mb-[4rem]
+    }
+
+    .dashboard__section-header {
+        @apply flex justify-between items-center mb-[4rem]
+    }
+
+    .dashboard__section-header h1 {
+        @apply text-[3.2rem]
+    }
+}

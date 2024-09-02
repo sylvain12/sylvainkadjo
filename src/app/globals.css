@@ -3,6 +3,7 @@
 @import "./projects/projects.css";
 @import "./about/about.css";
 @import "./p/[slug]/post.css";
+@import "./dashboard/dashboard.css";
 
 
 @tailwind base;

@@ -6,6 +6,15 @@ import { IBlogPost } from "@/app/posts/models/types";
 import { z } from "zod";
 import { BlogPostSchema } from "./models/shemas";
 
+export const getAllPostsAction = createServerAction().handler(async () => {
+  const supabase = createClient();
+  const { data } = await supabase
+    .from("posts")
+    .select(`*, tags (id, name), author:users (id, first_name, last_name)`)
+    .returns<IBlogPost[]>();
+  return data;
+});
+
 export const fetchPostsAction = createServerAction().handler(async () => {
   const supabase = createClient();
   const { data } = await supabase
@@ -26,5 +35,5 @@ export const getPostAction = createServerAction()
       .filter("slug", "eq", input.slug)
       .maybeSingle<IBlogPost>();
 
-    return data
+    return data;
   });
