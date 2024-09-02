@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect } from "react";
-import { getPostAction } from "../posts/actions";
-import { usePostStore } from "../posts/store";
+import { getPostAction } from "../../posts/actions";
+import { usePostStore } from "../../posts/store";
 import { usePathname } from "next/navigation";
 import { useServerAction } from "zsa-react";
 import PostDetailsComponent from "./components/post-details";
 import PostDetailsLoaderComponent from "./components/post-details-loader";
+import { getLastPath } from "@/lib/utils/utils";
 
 export default function PostViewComponent() {
   const { showedPost, setShowedPost } = usePostStore();
@@ -15,7 +16,7 @@ export default function PostViewComponent() {
     initialData: showedPost!,
   });
   const pathname = usePathname();
-  const slug = pathname.replace("/", "");
+  const slug = getLastPath(pathname);
 
   useEffect(() => {
     const fetchData = async () => {

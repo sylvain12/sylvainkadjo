@@ -30,7 +30,7 @@ export default function PostSpotlightComponent({ post }: PostSpotlightProp) {
               />
             )}
           </div>
-          <Link href={post.slug} className="posts__spotlight-content">
+          <Link href={`p/${post.slug}`} className="posts__spotlight-content">
             <h1 className="posts__spotlight-title">{post.title}</h1>
             <p className="text-[1.8rem] mb-[1rem]">{post.excerpt}</p>
             <p className="posts__list-item__content-date">

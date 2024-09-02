@@ -21,3 +21,8 @@ export const validateEmail = (email: string): boolean => {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(String(email).toLowerCase());
 };
+
+export const getLastPath = (path: string, splitBy: string = "/"): string => {
+  const pathList = path.split(splitBy);
+  return pathList[pathList.length - 1];
+};

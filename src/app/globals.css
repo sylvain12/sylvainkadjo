@@ -2,7 +2,7 @@
 @import "./posts/posts.css";
 @import "./projects/projects.css";
 @import "./about/about.css";
-@import "./[slug]/post.css";
+@import "./p/[slug]/post.css";
 
 
 @tailwind base;
