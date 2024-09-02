@@ -4,6 +4,7 @@ import "./globals.css";
 import NavbarComponent from "@/components/navbar";
 import FooterComponent from "@/components/footer";
 import clsx from "clsx";
+import SubscribeComponent from "@/components/subscribe";
 
 export const metadata: Metadata = {
   title: "Blog - SK",
@@ -39,6 +40,7 @@ export default function RootLayout({
         <NavbarComponent />
         {children}
         <FooterComponent />
+        <SubscribeComponent />
       </body>
     </html>
   );

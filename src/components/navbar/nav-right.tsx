@@ -4,8 +4,10 @@ import Button from "@/components/ui/buttons";
 import { navSocialsLinks } from "@/lib/shared/constant";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
+import { useSubscribevisibilitystore } from "../subscribe/store";
 
 export default function NavRightComponent() {
+  const { setVisibility } = useSubscribevisibilitystore();
   return (
     <div className="navbar__right">
       <div className="navbar__right-socials">
@@ -19,7 +21,7 @@ export default function NavRightComponent() {
         label="Subscribe"
         variant="second"
         type="button"
-        onClick={() => console.log("You clicked me!")}
+        onClick={() => setVisibility(true)}
       />
 
       {/* <div className="navbar__right-search">

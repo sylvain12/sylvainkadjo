@@ -1,6 +1,6 @@
 @layer components {
     .newsletter {
-        @apply pt-[4rem] flex flex-col items-center gap-[2rem] border-t mt-[4rem]
+        @apply pt-[4rem] flex flex-col items-center gap-[2rem] border-t mt-[4rem] text-center
     }
 
     .newsletter__form {
