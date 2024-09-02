@@ -26,13 +26,13 @@ export default function AboutInfoComponent() {
         Let&lsquo;s connect !
       </p>
 
-      <Button
+      {/* <Button
         label="view more"
         onClick={() => console.log("You clicked me!")}
         transparent={true}
         variant="second"
         type="button"
-      />
+      /> */}
     </div>
   );
 }

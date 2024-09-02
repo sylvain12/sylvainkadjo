@@ -22,7 +22,7 @@
 }
 
 .about__info-text {
-    @apply mb-[4rem]
+    @apply text-[1.8rem]
 }
 
 .about__info-profile {
@@ -38,6 +38,6 @@
 }
 
 .about__info-name span {
-    @apply text-[1rem] font-normal uppercase
+    @apply text-[1.3rem] font-thin uppercase 
 }
 }
