@@ -24,6 +24,7 @@
     "@tiptap/extension-link": "^2.6.6",
     "@tiptap/extension-list-item": "^2.6.6",
     "@tiptap/extension-ordered-list": "^2.6.6",
+    "@tiptap/extension-placeholder": "^2.6.6",
     "@tiptap/extension-text-style": "^2.6.6",
     "@tiptap/pm": "^2.6.6",
     "@tiptap/react": "^2.6.6",

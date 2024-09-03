@@ -1,8 +1,35 @@
+"use client";
+
 import Tiptap from "@/lib/utils/tiptap";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { getLastPath } from "@/lib/utils/utils";
+import { useDashboardPostStore } from "../../store";
+import { useServerAction } from "zsa-react";
+import { getPostAction } from "@/app/posts/actions";
+import { useEffect } from "react";
 
 export default function DashboardPostEditComponent() {
+  const pathname = usePathname();
+  const { editPost, setEditPost } = useDashboardPostStore();
+  const { isPending, execute, data } = useServerAction(getPostAction, {
+    persistDataWhilePending: true,
+    initialData: editPost!,
+  });
+  const slug = getLastPath(pathname);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const [data, error] = await execute({ slug: slug });
+      if (error) return;
+      setEditPost(data!);
+    };
+    fetchData();
+  }, [setEditPost, execute, slug]);
+
+  console.log(editPost?.content);
+
   return (
     <div className="dashboard__post-edit">
       <div className="dashboard__post-edit__header"></div>
@@ -21,7 +48,7 @@ export default function DashboardPostEditComponent() {
       </section>
 
       <section className="tiptap">
-        <Tiptap />
+        <Tiptap content={editPost?.content || ""} />
       </section>
     </div>
   );

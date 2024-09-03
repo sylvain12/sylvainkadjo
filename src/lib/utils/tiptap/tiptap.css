@@ -11,11 +11,11 @@
     /* List styles */
     .tiptap ul,
     .tiptap ol {
-    @apply py-0 px-[1.3rem] my-[1.25rem] mr-[1rem] ml-[4rem] my-[2.5rem]
+    @apply py-0 px-[1.3rem] my-[1.25rem] mr-[1rem] ml-[3rem] my-[1rem]
     }
 
     .tiptap ul li p, .tiptap ol li p {
-        @apply mt-[0.25em] mb-[0.25em]
+        @apply mt-[0.25rem] mb-[0.25rem]
     }
 
 
@@ -26,12 +26,12 @@
     .tiptap h4,
     .tiptap h5,
     .tiptap h6 {
-        @apply leading-[45px] mt-[2rem] text-pretty
+        @apply leading-[45px] mt-[1rem] text-pretty
     }
 
     .tiptap  h1,
     .tiptap h2 {
-        @apply mt-[3.5rem] mb-[1.5rem];
+        @apply mt-[3.5rem] mb-[1rem]
     }
 
     .tiptap h1 {
@@ -47,7 +47,7 @@
     }
 
 .tiptap p {
-    @apply text-[1.8rem] leading-[25px] my-[2.5rem]
+    @apply text-[1.8rem] leading-[25px] mb-[2.5rem] caret-slate-400
 }
 
     .tiptap h4,
@@ -60,14 +60,18 @@
 
 
     .tiptap blockquote {
-        @apply border-l-[3px] border-gray-400 my-[1.5rem] px-0 pl-[2rem] my-[2.5rem]
+        @apply border-l-[3px] border-gray-700 my-[2.5rem] px-0 pl-[2rem] italic -ml-[2.5rem]
     }
+
+  .tiptap blockquote p {
+      @apply mb-[.5rem] font-serif text-[2.2rem] font-thin
+  }
 
     .tiptap hr {
         @apply border-none border-t border-gray-200 my-[2rem] mx-0
     }
 
-/* Image styles */
+    /* Image styles */
     .tiptap img {
         display: block;
         height: auto;
@@ -79,106 +83,114 @@
         outline: 3px solid bg-purple-300;
     }
 
-/* Link style */
-.tiptap a {
- @apply underline font-semibold cursor-pointer
-}
-        /* Control */
-        .tiptap__toolbar {
-            @apply bg-red-200
-        }
-    
-        .tiptap__toolbar-buttons {
-            @apply flex gap-[2rem] bg-red-400
-        }
-    
-        .tiptap__toolbar-buttons button {
-            @apply flex-1
-        }
+    /* Link style */
+    .tiptap a {
+        @apply underline font-semibold cursor-pointer
+    }
+    /* Control */
+    .tiptap__toolbar {
+        @apply bg-red-200
+    }
 
-/* style code block */
+    .tiptap__toolbar-buttons {
+        @apply flex gap-[2rem] bg-red-400
+    }
 
-.tiptap pre {
-    @apply bg-gray-100 border rounded-[0.5rem] my-[2.5rem] mx-0 py-[1.5rem] px-[4rem] font-mono
-}
+    .tiptap__toolbar-buttons button {
+        @apply flex-1
+    }
 
-.tiptap pre code {
-    @apply bg-transparent text-inherit text-[1.6rem]
-}
+    /* style code block */
 
-.tiptap code {
-    @apply bg-gray-200 rounded-[0.4rem] py-[0.25rem] px-[0.3rem] text-[1.5rem]
-}
+    .tiptap pre {
+        @apply bg-gray-100 border rounded-[0.5rem] my-[2.5rem] mx-0 py-[1.5rem] px-[4rem] font-mono
+    }
 
-.tiptap pre .hljs-comment,
-.tiptap pre .hljs-quote {
-@apply text-[#616161];
-}
+    .tiptap pre code {
+        @apply bg-transparent text-inherit text-[1.6rem]
+    }
 
-.tiptap pre .hljs-variable,
-.tiptap pre .hljs-template-variable,
-.tiptap pre .hljs-attribute,
-.tiptap pre .hljs-tag,
-.tiptap pre .hljs-name,
-.tiptap pre .hljs-regexp,
-.tiptap pre .hljs-link,
-.tiptap pre .hljs-name,
-.tiptap pre .hljs-selector-id,
-.tiptap pre .hljs-selector-class {
-    @apply text-[#f98181];
-}
+    .tiptap code {
+        @apply bg-gray-200 rounded-[0.4rem] py-[0.25rem] px-[0.3rem] text-[1.5rem]
+    }
 
-.tiptap pre 
+    .tiptap pre .hljs-comment,
+    .tiptap pre .hljs-quote {
+    @apply text-[#616161];
+    }
 
-.tiptap pre .hljs-number,
-.tiptap pre .hljs-meta,
-.tiptap pre .hljs-built_in,
-.tiptap pre .hljs-builtin-name,
-.tiptap pre .hljs-literal,
-.tiptap pre .hljs-type,
-.tiptap pre .hljs-params {
-    @apply text-[#fbbc88];
-}
+    .tiptap pre .hljs-variable,
+    .tiptap pre .hljs-template-variable,
+    .tiptap pre .hljs-attribute,
+    .tiptap pre .hljs-tag,
+    .tiptap pre .hljs-name,
+    .tiptap pre .hljs-regexp,
+    .tiptap pre .hljs-link,
+    .tiptap pre .hljs-name,
+    .tiptap pre .hljs-selector-id,
+    .tiptap pre .hljs-selector-class {
+        @apply text-[#f98181];
+    }
 
-.tiptap pre .hljs-string,
-.tiptap pre .hljs-symbol,
-.tiptap pre .hljs-bullet {
-    @apply text-[#b9f18d];
-}
+    .tiptap pre .hljs-number,
+    .tiptap pre .hljs-meta,
+    .tiptap pre .hljs-built_in,
+    .tiptap pre .hljs-builtin-name,
+    .tiptap pre .hljs-literal,
+    .tiptap pre .hljs-type,
+    .tiptap pre .hljs-params {
+        @apply text-[#fbbc88];
+    }
 
-.tiptap pre .hljs-title,
-.tiptap pre .hljs-section {
-    @apply text-[#faf594];
-}
+    .tiptap pre .hljs-string,
+    .tiptap pre .hljs-symbol,
+    .tiptap pre .hljs-bullet {
+        @apply text-[#436528];
+    }
 
-.tiptap pre .hljs-keyword,
-.tiptap pre .hljs-selector-tag {
-    @apply text-[#70cff8]
-}
+    .tiptap pre .hljs-title,
+    .tiptap pre .hljs-section {
+        @apply text-[#faf594];
+    }
 
-.tiptap pre .hljs-emphasis {
-    @apply italic
-}
+    .tiptap pre .hljs-keyword,
+    .tiptap pre .hljs-selector-tag {
+        @apply text-[#70cff8]
+    }
 
-.tiptap pre .hljs-strong {
-    @apply font-[700]
-}
+    .tiptap pre .hljs-emphasis {
+        @apply italic
+    }
 
-.tiptap .code-block {
-    @apply relative
-}
+    .tiptap pre .hljs-strong {
+        @apply font-[700]
+    }
 
-.tiptap .code-block select {
-    @apply absolute bg-white top-[1rem] right-[1rem] p-2
-}
+    .tiptap .code-block {
+        @apply relative
+    }
 
-/* Horizontal rule */
-.tiptap hr {
-    @apply border-none border-t-[1px] border-gray-200 cursor-pointer my-[2rem]
-}
+    .tiptap .code-block select {
+        @apply absolute bg-white top-[1rem] right-[1rem] p-2
+    }
 
-.tiptap hr.ProseMirror-selectednode {
-  @apply border-t-[1px] border-purple-200
-}
+    /* Horizontal rule */
+    .tiptap hr {
+        @apply border-none border-t-[1px] border-gray-200 cursor-pointer my-[2rem]
+    }
+
+    .tiptap hr.ProseMirror-selectednode {
+    @apply border-t-[1px] border-purple-200
+    }
+
+    /* Placeholder */
+    .tiptap p.is-editor-empty:first-child::before {
+    @apply text-[#adb5bd] h-0 pointer-events-none content-[attr(data-placeholder)] float-left font-thin
+    }
+
+    /* Editor */
+    .titptap .tiptap-editor {
+    @apply pl-[4rem] border-l border-gray-100
+    }
 
 }
