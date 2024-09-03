@@ -1,55 +1,8 @@
 "use client";
 
-import { useEditor, EditorContent, ReactNodeViewRenderer } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
-import { Color } from "@tiptap/extension-color";
-import Link from "@tiptap/extension-link";
-import ListItem from "@tiptap/extension-list-item";
-import TextStyle from "@tiptap/extension-text-style";
-import { common, createLowlight } from "lowlight";
-import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
-import CodeBlockComponent from "./components/CodeBlockComponent";
-import BulletList from "@tiptap/extension-bullet-list";
-import OrderedList from "@tiptap/extension-ordered-list";
-import HorizontalRule from "@tiptap/extension-horizontal-rule";
-import Placeholder from "@tiptap/extension-placeholder";
+import { useEditor, EditorContent } from "@tiptap/react";
 import Toolbar from "./components/ToolBar";
-
-const lowlight = createLowlight(common);
-
-const extensions = [
-  Color.configure({ types: [TextStyle.name, ListItem.name] }),
-  TextStyle,
-  HorizontalRule,
-  BulletList.configure({
-    keepMarks: true,
-    keepAttributes: true,
-  }),
-  OrderedList.configure({
-    keepMarks: true,
-    keepAttributes: true,
-  }),
-  ListItem,
-  StarterKit.configure({
-    codeBlock: false,
-  }),
-  Link.configure({
-    openOnClick: true,
-    autolink: true,
-    defaultProtocol: "https",
-    HTMLAttributes: {
-      rel: "noopener noreferrer",
-    },
-  }),
-  CodeBlockLowlight.extend({
-    addNodeView() {
-      return ReactNodeViewRenderer(CodeBlockComponent);
-    },
-  }).configure({ lowlight, defaultLanguage: "plaintext" }),
-  Placeholder.configure({
-    placeholder: "Write something...",
-  }),
-];
+import { editorExtensions } from "@/lib/utils/tiptap/extensions";
 
 type TiptapProps = {
   content: string;
@@ -57,7 +10,7 @@ type TiptapProps = {
 
 const Tiptap = ({ content }: TiptapProps) => {
   const editor = useEditor({
-    extensions: extensions,
+    extensions: editorExtensions,
     content: content,
     editorProps: {
       attributes: {

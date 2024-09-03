@@ -48,6 +48,7 @@ export default function DashboardPostEditComponent() {
       </section>
 
       <section className="tiptap">
+        {editPost?.content}
         <Tiptap content={editPost?.content || ""} />
       </section>
     </div>
