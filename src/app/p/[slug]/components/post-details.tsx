@@ -1,5 +1,8 @@
+"use Client";
+
 import { IBlogPost } from "@/app/posts/models/types";
 import { DateTime } from "luxon";
+import PostContentComponent from './post-content';
 
 type PostDetailProp = {
   post: IBlogPost;
@@ -29,9 +32,8 @@ export default function PostDetailComponents({ post }: PostDetailProp) {
           {/* <div className='post-details__actions'>
 
       </div> */}
-          <p>Lorem ipsum dolor sit amet consectetur.</p>
           {post.content && (
-            <div className="post-details__content">{post.content}</div>
+            <PostContentComponent content={post.content} />
           )}
         </div>
       )}

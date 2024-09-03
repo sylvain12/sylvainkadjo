@@ -23,7 +23,7 @@ const Toolbar = ({ editor }: ToolBarProps) => {
     // update link
     editor
       ?.chain()
-      .focus()
+      .focus()  
       .extendMarkRange("link")
       .setLink({ href: url })
       .run();

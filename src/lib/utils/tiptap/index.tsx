@@ -3,7 +3,6 @@
 import { useEditor, EditorContent, Editor } from "@tiptap/react";
 import Toolbar from "./components/ToolBar";
 import { editorExtensions } from "@/lib/utils/tiptap/extensions";
-import { useDashboardPostStore } from "@/app/dashboard/store";
 import { useTiptapStore } from "./store";
 import { useEffect } from 'react';
 
