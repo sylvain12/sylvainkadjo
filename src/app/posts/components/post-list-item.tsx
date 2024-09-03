@@ -44,7 +44,7 @@ export default function PostListItemComponent({ post }: PostListItemProp) {
 
       <div className="posts__list-item__image">
         <Image
-          src={post.featuredImageUrl}
+          src={post.featureImageUrl}
           width={150}
           height={150}
           alt={post.title}

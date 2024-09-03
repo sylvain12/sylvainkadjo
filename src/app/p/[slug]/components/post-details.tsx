@@ -3,6 +3,7 @@
 import { IBlogPost } from "@/app/posts/models/types";
 import { DateTime } from "luxon";
 import PostContentComponent from './post-content';
+import Image from "next/image";
 
 type PostDetailProp = {
   post: IBlogPost;
@@ -28,13 +29,27 @@ export default function PostDetailComponents({ post }: PostDetailProp) {
                 post.tags.map((tag) => <span key={tag.id}>{tag.name}</span>)}
             </div>
           </div>
+          <div className="w-full h-300 mb-[4rem]">
+            {post.featureImageUrl && (
+              <Image
+                src={`post_images/${post.featureImageUrl}`}
+                width={500}
+                height={300}
+                style={{
+                  objectFit: "cover",
+                  width: "100%",
+                  height: "300px",
+                  objectPosition: "center",
+                }}
+                alt={post.title}
+              />
+            )}
+          </div>
 
           {/* <div className='post-details__actions'>
 
       </div> */}
-          {post.content && (
-            <PostContentComponent content={post.content} />
-          )}
+          {post.content && <PostContentComponent content={post.content} />}
         </div>
       )}
     </>

@@ -21,7 +21,7 @@ export const BlogPostSchema = z.object({
   publishedDate: z.string(),
   updatedDate: z.string(),
   tags: TagSchema,
-  featuredImageUrl: z.string(),
+  featureImageUrl: z.string(),
   status: z.enum(["draft", "published", "archived"]),
   views: z.number(),
   commentsEnabled: z.boolean(),

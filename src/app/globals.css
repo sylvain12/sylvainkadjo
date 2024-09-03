@@ -83,7 +83,7 @@ a {
 .main-container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 80px 1fr 130px;
+  grid-template-rows: 80px 1fr 90px;
   height: 100vh;
   /* width: 100%; */
 }

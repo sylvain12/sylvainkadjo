@@ -1,16 +1,16 @@
 @layer components {
 
     .footer {
-        @apply grid place-items-center grid-cols-1 py-[2rem]
+        @apply flex flex-col justify-center items-center text-center grid-cols-1 gap-[1rem] pt-[1rem]
     }
 
     .footer__copyright {
-        @apply font-light text-[1.4rem]
+        @apply font-light text-[1.2rem]
     }
 
 
     .footer__socials {
-        @apply flex gap-[2rem]
+        @apply flex gap-[1rem]
     }
 
 }

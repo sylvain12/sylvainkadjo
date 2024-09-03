@@ -7,7 +7,7 @@ export default function NavLogoComponent() {
     <div className="navbar__logo">
       <Link href="/">
         <Image
-          src="/assets/logo_mobile.png"
+          src="sylvainkadjo-assets/logo_mobile.png"
           alt="SYLVAINKADJO Logo"
           width={60}
           height={60}

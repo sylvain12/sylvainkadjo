@@ -6,7 +6,7 @@
 
 /* POST DETAILS */
     .post-details__header {
-        @apply mb-[8rem]
+        @apply mb-[5rem]
     }
 
 .post-details__header-title {

@@ -47,7 +47,7 @@
     }
 
 .tiptap p {
-    @apply text-[1.8rem] leading-[25px] mb-[2.5rem] caret-slate-400
+    @apply text-[1.8rem] leading-[30px] mb-[2.5rem] caret-slate-400
 }
 
     .tiptap h4,
@@ -116,7 +116,7 @@
 
     .tiptap pre .hljs-comment,
     .tiptap pre .hljs-quote {
-    @apply text-[#616161];
+    @apply text-[#357a27];
     }
 
     .tiptap pre .hljs-variable,
@@ -139,23 +139,23 @@
     .tiptap pre .hljs-literal,
     .tiptap pre .hljs-type,
     .tiptap pre .hljs-params {
-        @apply text-[#fbbc88];
+        @apply text-[#f08f3f];
     }
 
     .tiptap pre .hljs-string,
     .tiptap pre .hljs-symbol,
     .tiptap pre .hljs-bullet {
-        @apply text-[#436528];
+        @apply text-[#908d2b] font-semibold
     }
 
     .tiptap pre .hljs-title,
     .tiptap pre .hljs-section {
-        @apply text-[#faf594];
+        @apply text-[#46becb] font-bold
     }
 
     .tiptap pre .hljs-keyword,
     .tiptap pre .hljs-selector-tag {
-        @apply text-[#70cff8]
+        @apply text-[#9132ae] font-bold
     }
 
     .tiptap pre .hljs-emphasis {

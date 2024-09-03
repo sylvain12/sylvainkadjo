@@ -23,7 +23,7 @@ export default function SubscribeComponent() {
 
       <div className="subscribe__header">
         <Image
-          src="/assets/logo_mobile.png"
+          src="sylvainkadjo-assets/logo_mobile.png"
           width={60}
           height={60}
           alt="sylvainkadjo.com logo"

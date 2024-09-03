@@ -23,7 +23,7 @@ export interface IBlogPost {
   publishedDate: string;
   updatedDate: string;
   tags: ITag[];
-  featuredImageUrl: string;
+  featureImageUrl: string;
   status: "draft" | "published" | "archived";
   views: number;
   // commentsEnabled: boolean;

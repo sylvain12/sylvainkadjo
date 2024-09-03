@@ -5,6 +5,7 @@ import { Icon } from "@iconify/react";
 import { formatNumberWithK } from "@/lib/utils/utils";
 import Link from "next/link";
 
+
 export type PostSpotlightProp = {
   post: IBlogPost;
 };
@@ -15,9 +16,9 @@ export default function PostSpotlightComponent({ post }: PostSpotlightProp) {
       {post && (
         <div>
           <div className="w-full h-300 mb-[2rem]">
-            {post.featuredImageUrl && (
+            {post.featureImageUrl && (
               <Image
-                src={post.featuredImageUrl}
+                src={`post_images/${post.featureImageUrl}`}
                 width={500}
                 height={300}
                 style={{
