@@ -187,6 +187,9 @@ a {
 
 .tiptap__toolbar {
   margin-bottom: 3rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 .tiptap__toolbar-buttons {
   display: flex;

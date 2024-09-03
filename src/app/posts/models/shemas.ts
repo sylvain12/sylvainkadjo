@@ -2,7 +2,7 @@ import { TagSchema, UserSchema } from "@/lib/shared/schemas";
 import { z } from "zod";
 
 export const CommentSchema = z.object({
-  id: z.number(),
+  id: z.string(),
   postId: z.number(),
   author: z.string(),
   content: z.string(),
@@ -12,7 +12,7 @@ export const CommentSchema = z.object({
 });
 
 export const BlogPostSchema = z.object({
-  id: z.number(),
+  id: z.string(),
   title: z.string(),
   slug: z.string(),
   author: UserSchema,

@@ -7,16 +7,16 @@ import { usePathname } from "next/navigation";
 import { getLastPath } from "@/lib/utils/utils";
 import { useDashboardPostStore } from "../../store";
 import { useServerAction } from "zsa-react";
-import { getPostAction } from "@/app/posts/actions";
+import { getPostAction, updatePostContentAction } from "@/app/posts/actions";
 import { useEffect } from "react";
+import Button from "@/components/ui/buttons";
+import { useTiptapStore } from "@/lib/utils/tiptap/store";
 
 export default function DashboardPostEditComponent() {
   const pathname = usePathname();
   const { editPost, setEditPost } = useDashboardPostStore();
-  const { isPending, execute, data } = useServerAction(getPostAction, {
-    persistDataWhilePending: true,
-    initialData: editPost!,
-  });
+  const { content, setContent } = useTiptapStore();
+  const { isPending, execute, data } = useServerAction(getPostAction, {initialData: editPost!, persistDataWhilePending: true});
   const slug = getLastPath(pathname);
 
   useEffect(() => {
@@ -24,11 +24,19 @@ export default function DashboardPostEditComponent() {
       const [data, error] = await execute({ slug: slug });
       if (error) return;
       setEditPost(data!);
+      setContent(data?.content!);
     };
     fetchData();
   }, [setEditPost, execute, slug]);
 
-  console.log(editPost?.content);
+  const handleSaveContent = async () => {
+    const [data, error] = await updatePostContentAction({
+      id: editPost?.id!,
+      content: content,
+    });
+    if (error) console.log(error);
+    console.log(data);
+  };
 
   return (
     <div className="dashboard__post-edit">
@@ -47,9 +55,16 @@ export default function DashboardPostEditComponent() {
         </div>
       </section>
 
+      <div className="mb-[3rem] text-right">
+        <Button
+          disabled={content === "" || content === null}
+          label="Save"
+          variant="second"
+          onClick={handleSaveContent}
+        />
+      </div>
       <section className="tiptap">
-        {editPost?.content}
-        <Tiptap content={editPost?.content || ""} />
+      <Tiptap content={content!} isLoading={isPending && (data === null || data === undefined)}/>
       </section>
     </div>
   );

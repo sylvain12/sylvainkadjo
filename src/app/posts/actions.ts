@@ -37,3 +37,15 @@ export const getPostAction = createServerAction()
 
     return data;
   });
+
+export const updatePostContentAction = createServerAction()
+  .input(z.object({ id: z.string(), content: z.string() }))
+  .handler(async ({ input }) => {
+    const supabase = createClient();
+    const { data, error } = await supabase
+      .from("posts")
+      .update({ content: input.content })
+      .eq("id", input.id);
+
+    return data;
+  });

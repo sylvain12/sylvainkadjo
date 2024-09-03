@@ -11,10 +11,12 @@ import StarterKit from "@tiptap/starter-kit";
 import CodeBlockComponent from "./components/CodeBlockComponent";
 import Placeholder from "@tiptap/extension-placeholder";
 import { common, createLowlight } from "lowlight";
+import Document from "@tiptap/extension-document";
 
 const lowlight = createLowlight(common);
 
 export const editorExtensions = [
+  Document,
   Color.configure({ types: [TextStyle.name, ListItem.name] }),
   TextStyle,
   HorizontalRule,
@@ -29,6 +31,7 @@ export const editorExtensions = [
   ListItem,
   StarterKit.configure({
     codeBlock: false,
+    document: false
   }),
   Link.configure({
     openOnClick: true,

@@ -3,7 +3,7 @@ import { z } from "zod";
 
 // Interface for a single Comment
 export interface IComment {
-  id: number;
+  id: string;
   postId: number;
   author: string;
   content: string;
@@ -14,7 +14,7 @@ export interface IComment {
 
 // Interface for a BlogPost
 export interface IBlogPost {
-  id: number;
+  id: string;
   title: string;
   slug: string;
   author: IUser;
