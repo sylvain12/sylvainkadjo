@@ -5,7 +5,7 @@ export default function PostsHeaderComponent() {
         <h1 className="text-[4rem] font-thin">Blog</h1>
         <p>
           Discover Our Latest{" "}
-          <span className="font-bold text-second underline">Stories</span>{" "}
+          <span className="font-bold text-second">Stories</span>{" "}
         </p>
       </div>
     </div>

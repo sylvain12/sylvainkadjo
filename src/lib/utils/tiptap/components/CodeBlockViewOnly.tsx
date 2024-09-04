@@ -1,4 +1,4 @@
-import { NodeViewContent, NodeViewWrapper } from "@tiptap/react";
+import { NodeView, NodeViewContent, NodeViewWrapper } from "@tiptap/react";
 
 const CodeBlockViewOnlyComponent = ({
   node: {
@@ -6,7 +6,7 @@ const CodeBlockViewOnlyComponent = ({
   },
   updateAttributes,
   extension,
-}) => (
+}: NodeView<HTMLSelectElement>) => (
   <NodeViewWrapper className="code-block">
     <pre>
       <NodeViewContent as="code" />

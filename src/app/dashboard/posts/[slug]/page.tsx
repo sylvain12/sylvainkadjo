@@ -27,7 +27,7 @@ export default function DashboardPostEditComponent() {
       setContent(data?.content!);
     };
     fetchData();
-  }, [setEditPost, execute, slug]);
+  }, [setEditPost, execute, slug, setContent]);
 
   const handleSaveContent = async () => {
     const [data, error] = await updatePostContentAction({

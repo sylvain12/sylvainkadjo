@@ -28,7 +28,7 @@ const Tiptap = ({ content, isLoading=false }: TiptapProps) => {
     if (editor) {
       editor.commands.setContent(content);
     }
-  }, [content])
+  }, [content, editor])
 
   const handleUpdate = () => setContent(editor?.getHTML()!);
 

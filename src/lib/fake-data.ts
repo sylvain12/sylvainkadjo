@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 import { IComment, IBlogPost } from "@/app/posts/models/types";
-import { ITag } from "./shared/interfaces";
+import { ITag, IUser } from "./shared/interfaces";
 import { IProject } from "@/app/projects/models/types";
 
 // Function to generate a fake comment
@@ -8,7 +8,7 @@ const generateFakeComment = (
   postId: number,
   parentCommentId: number | null = null
 ): IComment => ({
-  id: faker.datatype.number(),
+  id: faker.string.uuid(),
   postId,
   author: faker.internet.userName(),
   content: faker.lorem.paragraph(),
@@ -19,32 +19,39 @@ const generateFakeComment = (
 
 // Function to generate a fake tag
 const generateFakeTag = (): ITag => ({
-  id: faker.datatype.number(),
+  id: faker.datatype.string(),
   name: faker.lorem.word(),
 });
 
 const generateFakeImage = (): string => faker.image.imageUrl();
+const generateFakeUser = (): IUser => {
+  const userId = faker.string.uuid()
+  return {
+    id: userId,
+    first_name: faker.string.sample({ min: 5, max: 10 }),
+    last_name: faker.string.sample({ min: 5, max: 10 }),
+  };
+}
 
 // Function to generate a fake blog post
 const generateFakePost = (): IBlogPost => {
-  const postId = faker.datatype.number();
+  const postId = faker.string.uuid();
   return {
     id: postId,
     title: faker.lorem.sentence(),
     slug: faker.lorem.slug(),
-    author: faker.internet.userName(),
+    author: generateFakeUser(),
     content: faker.lorem.paragraphs(5),
     excerpt: faker.lorem.sentences(2),
     publishedDate: faker.date.past().toISOString(),
     updatedDate: faker.date.recent().toISOString(),
     tags: Array.from({ length: 3 }, generateFakeTag),
-    featuredImageUrl: faker.image.imageUrl(),
+    featureImageUrl: generateFakeImage(),
     status: faker.helpers.arrayElement(["draft", "published", "archived"]),
     views: faker.datatype.number({ min: 0, max: 10000 }),
-    commentsEnabled: faker.datatype.boolean(),
-    comments: Array.from({ length: 5 }, () => generateFakeComment(postId)),
+    // commentsEnabled: faker.datatype.boolean(),
+    // comments: Array.from({ length: 5 }, () => generateFakeComment(postId)),
     likes: faker.datatype.number({ min: 0, max: 500 }),
-    image: generateFakeImage(),
   };
 };
 
@@ -55,11 +62,11 @@ const generateFakeProject = (): IProject => {
     name: faker.commerce.productName(),
     description: faker.lorem.sentence(6),
     tags: Array.from({ length: 3 }, generateFakeTag),
-    githubLink: faker.internet.url(),
-    projectLink: faker.internet.url(),
+    repository: faker.internet.url(),
+    website: faker.internet.url(),
     category: faker.helpers.arrayElement([
       "package",
-      "data",
+      "data & ai",
       "software",
       "design",
     ]),

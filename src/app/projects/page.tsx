@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import ProjectsHeaderComponent from "./components/projects-header";
 import ProjectsListComponent from "./components/projects-list";
-import ProjectSidebarComponent from "./components/project-sidebar";
+
 
 export const metadata: Metadata = {
   title: "Projects - SK",
