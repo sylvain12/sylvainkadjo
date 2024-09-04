@@ -15,7 +15,12 @@
     }
 
     .tiptap ul li p, .tiptap ol li p {
-        @apply mt-[0.25rem] mb-[0.25rem]
+        @apply mt-[0.25rem] mb-[0.25rem] text-text
+    }
+
+    .tiptap ul li ::marker,
+    .tiptap ol li ::marker {
+        @apply text-text
     }
 
 
@@ -47,7 +52,7 @@
     }
 
 .tiptap p {
-    @apply text-[1.8rem] leading-[30px] mb-[2.5rem] caret-slate-400
+    @apply text-[1.8rem] leading-[30px] mb-[2.5rem] caret-slate-400 text-text
 }
 
     .tiptap h4,
@@ -60,11 +65,15 @@
 
 
     .tiptap blockquote {
-        @apply border-l-[3px] border-gray-700 my-[2.5rem] px-0 pl-[2rem] italic -ml-[2.5rem]
+        @apply border-l-[2px] border-second my-[2.5rem] px-0 pl-[2rem] italic -ml-[2.5rem]
     }
 
   .tiptap blockquote p {
-      @apply mb-[.5rem] font-serif text-[2.2rem] font-thin
+      @apply mb-[.5rem] font-serif text-[2.2rem] font-thin text-text
+  }
+
+  .tiptap blockquote span em {
+      @apply text-text
   }
 
     .tiptap hr {
@@ -85,7 +94,7 @@
 
     /* Link style */
     .tiptap a {
-        @apply underline font-semibold cursor-pointer
+        @apply underline font-semibold cursor-pointer text-second
     }
     /* Control */
     .tiptap__toolbar {
@@ -103,7 +112,7 @@
     /* style code block */
 
     .tiptap pre {
-        @apply bg-gray-100 border rounded-[0.5rem] my-[2.5rem] mx-0 py-[1.5rem] px-[4rem] font-mono
+        @apply bg-light border rounded-[0.5rem] my-[2.5rem] mx-0 py-[1.5rem] px-[4rem] font-mono
     }
 
     .tiptap pre code {
@@ -111,8 +120,12 @@
     }
 
     .tiptap code {
-        @apply bg-gray-200 rounded-[0.4rem] py-[0.25rem] px-[0.3rem] text-[1.5rem]
+        @apply bg-light rounded-[0.4rem] py-[0.25rem] px-[0.3rem] text-[1.5rem] text-text
     }
+
+  .tiptap p code {
+      @apply text-text
+  }
 
     .tiptap pre .hljs-comment,
     .tiptap pre .hljs-quote {

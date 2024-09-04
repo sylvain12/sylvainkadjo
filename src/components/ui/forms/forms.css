@@ -4,7 +4,7 @@
     }
 
     .input-field {
-        @apply border rounded-none w-full 
+        @apply border rounded-none w-full bg-light border-second
     }
 
     .input-field.input-field-medium {

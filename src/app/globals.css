@@ -25,6 +25,12 @@
   --ff-serif: "Playfair Display", serif;
 }
 
+.dark {
+ --bg-white:#181818;
+ --color-light:#282828;
+ --text-color: #e6e6e6;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -198,7 +204,7 @@ a {
   flex-wrap: wrap;
   padding: 1.25rem 2.25rem;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
-  background-color: #fff;
+  background-color: var(--color-light);
   color: var(--color-second);
 }
 
@@ -234,6 +240,51 @@ a {
   border-right: 1px solid #cecece;
 }
 
+/* DARKMODE */
+
+.nav-darkmode {
+  background: var(--color-light);
+  border: 1px solid var(--color-second);
+  border-radius: 11px;
+  box-shadow: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: var(--color-second);
+  display: block;
+  height: 22px;
+  margin: 0;
+  outline: none;
+  padding: 1px;
+  width: 40px;
+}
+
+.nav-darkmode span {
+  background: var(--bg-white);
+  border-radius: 9px;
+  box-sizing: border-box;
+  display: block;
+  padding: 3px;
+  margin-left: 0;  
+  position: relative;
+  transition-property: margin-left, transform;
+  transition-duration: .2s;
+  transition-timing-function: ease-out;
+  width: 18px;
+}
+
+.nav-darkmode iconify-icon {
+  display: block;
+  font-size: 5px;
+  height: 1em;
+  line-height: 1em;
+  width: 1em;
+}
+
+.nav-darkmode.dark span {
+    margin-left: 100%;
+    transform: translateX(-100%);
+}
+
 /* ********* Breakpoint ******** */
 
 @media (max-width: 1366px) {
@@ -262,7 +313,7 @@ a {
       align-items: center;
     }
   
-    .navbar__right {
+    .navbar__right button:nth-child(2) {
       display: none;
     }
 }

@@ -20,6 +20,7 @@ const config: Config = {
         second: "var(--color-second)",
         light: "var(--color-light)",
         text: "var(--text-color)",
+        white: "var(--bg-white)"
       },
       fontFamily: {
         serif: ["var(--ff-serif)", ...fontFamily.serif],
@@ -27,5 +28,6 @@ const config: Config = {
     },
   },
   plugins: [],
+  darkMode: ['selector', '[data-mode="dark"]']
 };
 export default config;

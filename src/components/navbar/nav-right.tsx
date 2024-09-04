@@ -5,18 +5,44 @@ import { navSocialsLinks } from "@/lib/shared/constant";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { useSubscribevisibilitystore } from "../subscribe/store";
+import { useDarkMode } from '@/lib/store/darkmode';
+import clsx from 'clsx';
+import { useEffect } from 'react';
 
 export default function NavRightComponent() {
   const { setVisibility } = useSubscribevisibilitystore();
+  const {isDark, toggleDarkmode} = useDarkMode()
+
+  useEffect(() => {
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+  }, [isDark]);
+
   return (
     <div className="navbar__right">
-      <div className="navbar__right-socials">
+      {/* <div className="navbar__right-socials">
         {navSocialsLinks.map((social) => (
           <Link key={social.label} target="_blank" href={social.link}>
             <Icon icon={social.icon} width={24} />
           </Link>
         ))}
-      </div>
+      </div> */}
+      <button className={clsx("nav-darkmode", {"dark": isDark})} onClick={toggleDarkmode}>
+        <span>
+          <Icon
+            icon={`${isDark ? "line-md:moon-simple" : "line-md:sunny-outline"}`}
+          />
+        </span>
+      </button>
       <Button
         label="Subscribe"
         variant="second"

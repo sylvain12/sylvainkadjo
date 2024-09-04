@@ -4,10 +4,10 @@ export default function PostLoaderComponent() {
       <div className="mb-[4rem] border-b border-light pb-[4rem]">
         <div
           role="status"
-          className="flex items-center justify-center h-[200px] w-full bg-gray-100 rounded-lg animate-pulse mb-[2rem]"
+          className="flex items-center justify-center h-[200px] w-full bg-light rounded-lg animate-pulse mb-[2rem]"
         >
           <svg
-            className="w-10 h-10 text-gray-200 dark:text-gray-600"
+            className="w-10 h-10 text-white "
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -18,21 +18,21 @@ export default function PostLoaderComponent() {
           </svg>
         </div>
         <div className="w-full">
-          <div className="h-[1.6rem] bg-gray-100 max-w-[480px] mb-4"></div>
-          <div className="h-[1.6rem] bg-gray-100 rounded-sm max-w-[380px] mb-[2rem]"></div>
-          <div className="h-[1.2rem] bg-gray-100 rounded-sm max-w-[200px]"></div>
+          <div className="h-[1.6rem] bg-light max-w-[480px] mb-4"></div>
+          <div className="h-[1.6rem] bg-light rounded-sm max-w-[380px] mb-[2rem]"></div>
+          <div className="h-[1.2rem] bg-light rounded-sm max-w-[200px]"></div>
         </div>
       </div>
       {[1, 2, 3].map((index) => (
         <div key={index} role="status" className="posts__loader-item">
           <div className="w-full">
-            <div className="h-[1.6rem] bg-gray-100 max-w-[480px] mb-4"></div>
-            <div className="h-[1.6rem] bg-gray-100 rounded-sm max-w-[380px] mb-[2rem]"></div>
-            <div className="h-[1.2rem] bg-gray-100 rounded-sm max-w-[200px]"></div>
+            <div className="h-[1.6rem] bg-light max-w-[480px] mb-4"></div>
+            <div className="h-[1.6rem] bg-light rounded-sm max-w-[380px] mb-[2rem]"></div>
+            <div className="h-[1.2rem] bg-light rounded-sm max-w-[200px]"></div>
           </div>
-          <div className="flex items-center justify-center w-full h-48 bg-gray-100 rounded sm:w-96">
+          <div className="flex items-center justify-center w-full h-48 bg-light rounded sm:w-96">
             <svg
-              className="w-10 h-10 text-gray-100 "
+              className="w-10 h-10 text-light "
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"

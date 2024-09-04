@@ -17,7 +17,7 @@
     }
 
     .projects__header-link {
-        @apply flex items-center gap-2 underline text-main text-[2rem]
+        @apply flex items-center gap-2 underline text-second text-[2rem]
     }
 
     /* SIDEBAR */

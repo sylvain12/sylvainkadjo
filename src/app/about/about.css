@@ -1,6 +1,6 @@
 @layer components {
 .about {
-        @apply w-[475px] mx-auto py-[4rem] text-center
+        @apply w-[475px] mx-auto py-[4rem] text-center max-md:px-[4rem]
     }
 
 /* ABOUT CONTACT */
