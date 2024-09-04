@@ -24,16 +24,16 @@ export default function PostSpotlightComponent({ post }: PostSpotlightProp) {
                 style={{
                   objectFit: "cover",
                   width: "100%",
-                  height: "300px",
                   objectPosition: "center",
                 }}
                 alt={post.title}
+                className='h-[300px] max-md:h-[150px]'
               />
             )}
           </div>
           <Link href={`p/${post.slug}`} className="posts__spotlight-content">
             <h1 className="posts__spotlight-title">{post.title}</h1>
-            <p className="text-[1.8rem] mb-[1rem]">{post.excerpt}</p>
+            <p className="posts_spotlight-description">{post.excerpt}</p>
             <p className="posts__list-item__content-date">
               <span>
                 {DateTime.fromISO(post.publishedDate).toFormat("LLL dd")}

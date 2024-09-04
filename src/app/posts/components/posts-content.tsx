@@ -14,7 +14,7 @@ export default function PostsContent() {
 
   const { isPending, execute, data } = useServerAction(fetchPostsAction, {
     onError: ({ err }) => console.log(err.message),
-    onSuccess: ({ data }) => console.log(`${data.length} posts loaded!`),
+    onSuccess: ({ data }) => data && console.log(`${data.length} posts loaded!`),
     initialData: posts,
     persistDataWhilePending: true,
   });

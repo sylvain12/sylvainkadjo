@@ -1,7 +1,7 @@
 @layer components {
 
 .post-details__container {
-    @apply w-[650px] mx-auto py-[6rem] text-[1.8rem]
+    @apply w-[650px] mx-auto py-[6rem] text-[1.8rem] max-md:w-[525px] max-sm:w-[425px]
 }
 
 /* POST DETAILS */
@@ -10,7 +10,7 @@
     }
 
 .post-details__header-title {
-    @apply text-[4rem] font-bold mb-8 leading-[42px]
+    @apply text-[4rem] font-bold mb-8 leading-[42px] max-md:text-[3rem] max-md:leading-[35px]
  }
 
 .post-details__header-description {

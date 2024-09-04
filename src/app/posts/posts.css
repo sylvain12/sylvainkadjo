@@ -89,7 +89,11 @@
     }
 
     .posts__spotlight-title {
-        @apply text-[3rem] mb-[1rem] font-semibold
+        @apply text-[3rem] mb-[1rem] font-semibold max-md:text-[2.2rem]
+    }
+
+    .posts_spotlight-description {
+        @apply text-[1.8rem] mb-[1rem] max-md:text-[1.5rem]
     }
 
     .posts__spotlight-content:hover .posts__spotlight-title {

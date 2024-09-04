@@ -233,3 +233,59 @@ a {
 .tiptap__toolbar-group:not(:last-child) {
   border-right: 1px solid #cecece;
 }
+
+/* ********* Breakpoint ******** */
+
+@media (max-width: 1366px) {
+  
+}
+
+@media (max-width: 1024px) {
+/* PROJECT   */
+  .projects__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects {
+    width: 756px;
+  } 
+
+/* POSTS */
+.posts {
+  grid-template-columns: 1fr 725px 1fr;
+}
+
+    /* NAVBAR */
+    .navbar {
+    display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    .navbar__right {
+      display: none;
+    }
+}
+
+@media (max-width: 724px) {
+/* PROJECT */
+  .projects__list {
+    grid-template-columns: 1fr;
+  }
+
+  .projects {
+    width: 456px;
+    padding: 4rem 4rem 7rem 4rem;
+
+  }
+
+/* POSTS */
+.posts {
+    grid-template-columns: 6rem 1fr 6rem;
+  }
+
+.posts__content {
+  width: 100%;
+}
+
+}

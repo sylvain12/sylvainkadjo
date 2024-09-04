@@ -38,10 +38,10 @@ export default function PostDetailComponents({ post }: PostDetailProp) {
                 style={{
                   objectFit: "cover",
                   width: "100%",
-                  height: "300px",
                   objectPosition: "center",
                 }}
                 alt={post.title}
+                className='h-[300px] max-md:h-[200px]'
               />
             )}
           </div>

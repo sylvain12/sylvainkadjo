@@ -13,7 +13,7 @@ export default function ProjectsListComponent() {
     onError: ({ err }) => {
       throw err;
     },
-    onSuccess: ({ data }) => console.log(`${data.length} projects loaded!`),
+    onSuccess: ({ data }) => data && console.log(`${data.length} projects loaded!`),
     initialData: projects,
     persistDataWhilePending: true,
   });
