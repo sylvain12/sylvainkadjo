@@ -1,2 +1,2 @@
-bun run build
+bun run pages:build
 bun run lint
