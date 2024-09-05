@@ -8,7 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky",
-    "email": "bun run email dev --dir src/lib/utils/resend/emails"
+    "email": "bun run email dev --dir src/lib/utils/resend/emails",
+    "pages:build": "npx @cloudflare/next-on-pages",
+    "preview": "npm run pages:build && wrangler pages dev",
+    "deploy": "npm run pages:build && wrangler pages deploy"
   },
   "dependencies": {
     "@react-email/components": "0.0.24",
@@ -46,6 +49,7 @@
     "zustand": "^4.5.5"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.2",
     "@faker-js/faker": "^8.4.1",
     "@iconify/react": "^5.0.2",
     "@types/luxon": "^3.4.2",
@@ -54,6 +58,7 @@
     "@types/react-dom": "^18.3.0",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.6",
+    "eslint-plugin-next-on-pages": "^1.13.2",
     "husky": "^9.1.5",
     "luxon": "^3.5.0",
     "postcss": "^8.4.45",

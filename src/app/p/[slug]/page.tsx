@@ -9,6 +9,8 @@ import PostDetailsComponent from "./components/post-details";
 import PostDetailsLoaderComponent from "./components/post-details-loader";
 import { getLastPath } from "@/lib/utils/utils";
 
+export const runtime="edge"
+
 export default function PostViewComponent() {
   const { showedPost, setShowedPost } = usePostStore();
   const { isPending, execute, data } = useServerAction(getPostAction, {

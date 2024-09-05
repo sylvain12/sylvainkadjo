@@ -3,6 +3,9 @@ import ProjectsHeaderComponent from "./components/projects-header";
 import ProjectsListComponent from "./components/projects-list";
 
 
+export const runtime="edge"
+
+
 export const metadata: Metadata = {
   title: "Projects - SK",
 };

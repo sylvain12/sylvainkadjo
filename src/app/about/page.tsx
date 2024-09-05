@@ -4,6 +4,8 @@ import AboutContactComponent from './components/about-contact';
 import NewsletterComponent from '@/components/newsletter';
 import { Toaster } from 'sonner';
 
+export const runtime = "edge";
+
 export const metadata: Metadata = {
   title: "About - SK",
 };

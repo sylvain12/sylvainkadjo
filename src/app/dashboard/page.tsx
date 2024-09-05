@@ -7,6 +7,8 @@ import { useDashboardPostStore } from "./store";
 import { useEffect } from "react";
 import Button from "@/components/ui/buttons";
 
+export const runtime="edge"
+
 export default function Dashboard() {
   const { posts, setPosts } = useDashboardPostStore();
   const { isPending, execute, data } = useServerAction(getAllPostsAction, {

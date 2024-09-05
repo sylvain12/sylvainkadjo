@@ -12,6 +12,8 @@ import { useEffect } from "react";
 import Button from "@/components/ui/buttons";
 import { useTiptapStore } from "@/lib/utils/tiptap/store";
 
+export const runtime="edge"
+
 export default function DashboardPostEditComponent() {
   const pathname = usePathname();
   const { editPost, setEditPost } = useDashboardPostStore();
