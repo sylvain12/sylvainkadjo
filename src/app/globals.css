@@ -17,8 +17,9 @@
   --background-end-rgb: 255, 255, 255;
   --bg-white: #fff;
   --text-color: #3C3B3B;
-  --color-main: #063970;
+  --color-main: #f0b45b;
   --color-second: #4D7AA4;
+  --color-second-light: rgb(101, 161, 217);
   --color-light: #eeeeee;
   --bg-gradient: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(6, 57, 112, 0.2) 100%);
 
@@ -193,9 +194,9 @@ a {
 
 .tiptap__toolbar {
   margin-bottom: 3rem;
-  position: sticky;
+  /* position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 10; */
 }
 .tiptap__toolbar-buttons {
   display: flex;

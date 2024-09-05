@@ -5,6 +5,7 @@ export const Input: React.FC<InputProps> = ({
   type = "text",
   value,
   onChange,
+  onKeyUp,
   placeholder = "",
   label,
   id,
@@ -27,6 +28,7 @@ export const Input: React.FC<InputProps> = ({
         type={type}
         value={value}
         onChange={onChange}
+        onKeyUp={onKeyUp}
         placeholder={placeholder}
         id={id}
         name={name}

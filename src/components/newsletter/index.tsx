@@ -3,21 +3,26 @@
 import Link from "next/link";
 import Button from "../ui/buttons";
 import { Input } from "../ui/forms";
-import { useSubscriberStore } from "./store";
-import { validateEmail } from "@/lib/utils/utils";
-import { useFormErrorStore } from "@/lib/store/error";
-import { subscribeAction } from "./action";
-import { useServerAction } from "zsa-react";
 import { toast, Toaster } from "sonner";
+import { validateEmail } from "@/lib/utils/utils";
+import { useEffect } from 'react';
 import { supabaseDuplicateValueCode } from "@/lib/shared/constant";
+import { useServerAction } from "zsa-react";
+import { useSubscriberStore } from "@/components/newsletter/store";
+import { useFormErrorStore } from "@/lib/store/error";
+import { subscribeAction } from "@/components/newsletter/action";
+import { useSubscribevisibilitystore } from '../subscribe/store';
+
 
 export default function NewsletterComponent() {
   const { subscriber, setSubscriber } = useSubscriberStore();
   const { hasError, errorMessage, setError, resetForm } = useFormErrorStore();
   const { isPending, execute } = useServerAction(subscribeAction);
-  // const {} = useServerAction(sendEmailAction)
+  const { isVisible, setVisibility } = useSubscribevisibilitystore();
+  
 
-  const handleSubscribe = async () => {
+
+const handleSubscribe = async () => {
     if (validateEmail(subscriber)) {
       const promise = () =>
         new Promise<{ message: string }>((resolve, reject) => {
@@ -27,14 +32,12 @@ export default function NewsletterComponent() {
                 if (data?.error?.code! == supabaseDuplicateValueCode) {
                   resolve({
                     message:
-                      "You're already subscribed! Thanks for your interest",
+                      "Already subscribed! thanks for your interest",
                   });
                 } else {
                   reject("There was an error. Please try again.");
                 }
               } else {
-                resetForm();
-                setSubscriber("");
                 resolve({ message: `Thank you for subscribing!` });
               }
             })
@@ -42,33 +45,37 @@ export default function NewsletterComponent() {
         });
 
       toast.promise(promise, {
-        loading: "Subscribing",
+        loading: "Subscribing...",
         success: (res) => {
+          resetForm();
+          setSubscriber("");
           return res.message;
         },
         error: (err) => {
-          setError("");
           return err;
         },
       });
     } else {
       setError("Please enter a valid email address.");
     }
+  };
+
+  useEffect(() => {
 
     return () => {
       resetForm();
       setSubscriber("");
-    };
-  };
+    }
+  }, [setSubscriber, resetForm])
 
   return (
     <div className="newsletter">
-      <Toaster position="bottom-center" richColors closeButton />
       <div>
         <p className="text-[2.1rem]">
           Subscribe to{" "}
           <Link
             href="/"
+            onClick={() => isVisible && setVisibility(false)}
             className="uppercase font-semibold text-second underline"
           >
             sylvainkadjo.com
@@ -82,6 +89,7 @@ export default function NewsletterComponent() {
       <div className="newsletter__form">
         <Input
           value={subscriber}
+          onKeyUp={(e) => e.key === "Enter" && handleSubscribe()}
           onChange={(e) => {
             resetForm();
             setSubscriber(e.target.value);

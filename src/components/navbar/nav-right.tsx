@@ -8,10 +8,14 @@ import { useSubscribevisibilitystore } from "../subscribe/store";
 import { useDarkMode } from '@/lib/store/darkmode';
 import clsx from 'clsx';
 import { useEffect } from 'react';
+import { useFormErrorStore } from '@/lib/store/error';
+import { useSubscriberStore } from '../newsletter/store';
 
 export default function NavRightComponent() {
   const { setVisibility } = useSubscribevisibilitystore();
   const {isDark, toggleDarkmode} = useDarkMode()
+  const { setSubscriber } = useSubscriberStore();
+  const { resetForm } = useFormErrorStore();
 
   useEffect(() => {
     localStorage.setItem("theme", isDark ? "dark" : "light");
@@ -27,6 +31,12 @@ export default function NavRightComponent() {
     }
   }, [isDark]);
 
+  const handleVisibility = () => {
+    resetForm();
+    setSubscriber("");
+    setVisibility(true);
+  }
+
   return (
     <div className="navbar__right">
       {/* <div className="navbar__right-socials">
@@ -36,7 +46,10 @@ export default function NavRightComponent() {
           </Link>
         ))}
       </div> */}
-      <button className={clsx("nav-darkmode", {"dark": isDark})} onClick={toggleDarkmode}>
+      <button
+        className={clsx("nav-darkmode", { dark: isDark })}
+        onClick={toggleDarkmode}
+      >
         <span>
           <Icon
             icon={`${isDark ? "line-md:moon-simple" : "line-md:sunny-outline"}`}
@@ -47,7 +60,7 @@ export default function NavRightComponent() {
         label="Subscribe"
         variant="second"
         type="button"
-        onClick={() => setVisibility(true)}
+        onClick={handleVisibility}
       />
 
       {/* <div className="navbar__right-search">

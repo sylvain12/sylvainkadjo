@@ -18,6 +18,7 @@ const config: Config = {
       colors: {
         main: "var(--color-main)",
         second: "var(--color-second)",
+        'second-light': "var(--color-second-light)",
         light: "var(--color-light)",
         text: "var(--text-color)",
         white: "var(--bg-white)"

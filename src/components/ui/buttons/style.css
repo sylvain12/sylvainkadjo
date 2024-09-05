@@ -8,7 +8,7 @@
     }
 
     .btn.btn-second {
-        @apply border-second bg-second text-white transition hover:bg-main
+        @apply border-second bg-second text-white transition hover:bg-second-light hover:border-second-light
     }
 
     .btn.btn-medium {

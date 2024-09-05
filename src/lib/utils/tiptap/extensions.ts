@@ -12,6 +12,7 @@ import CodeBlockComponent from "./components/CodeBlockComponent";
 import Placeholder from "@tiptap/extension-placeholder";
 import { common, createLowlight } from "lowlight";
 import Document from "@tiptap/extension-document";
+import Focus from "@tiptap/extension-focus";
 
 const lowlight = createLowlight(common);
 
@@ -49,4 +50,8 @@ export const editorExtensions = [
   Placeholder.configure({
     placeholder: "Write something...",
   }),
+  Focus.configure({
+    className: 'has-focus',
+    mode: 'shallowest',
+  })
 ];

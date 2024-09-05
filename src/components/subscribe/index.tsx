@@ -7,9 +7,23 @@ import clsx from "clsx";
 import { socialsLinks } from "@/lib/shared/constant";
 import Link from "next/link";
 import Image from "next/image";
+import { useFormErrorStore } from '@/lib/store/error';
+import { useSubscriberStore } from '../newsletter/store';
+import { toast, Toaster } from 'sonner';
+import { usePathname } from 'next/navigation';
 
 export default function SubscribeComponent() {
   const { isVisible, setVisibility } = useSubscribevisibilitystore();
+  const { resetForm } = useFormErrorStore()
+ const { setSubscriber } = useSubscriberStore();
+  const pathname = usePathname()
+
+  const handleClose = () => {
+    resetForm();
+    setSubscriber("")
+    setVisibility(false);
+  }
+
   return (
     <div
       className={clsx(`subscribe__container`, {
@@ -17,15 +31,16 @@ export default function SubscribeComponent() {
         hidden: !isVisible,
       })}
     >
-      <span className="subscribe__close" onClick={() => setVisibility(false)}>
+      {!pathname.includes("about") && <Toaster position="bottom-center" richColors closeButton />}
+      <span className="subscribe__close" onClick={handleClose}>
         <Icon icon="iconamoon:sign-times-thin" width={50} />
       </span>
 
       <div className="subscribe__header">
         <Image
-          src="sylvainkadjo-assets/logo_mobile.png"
-          width={60}
-          height={60}
+          src="sylvainkadjo-assets/sylvainkadjo_logo.png"
+          width={45}
+          height={45}
           alt="sylvainkadjo.com logo"
         />
       </div>

@@ -206,4 +206,9 @@
     @apply pl-[4rem] border-l border-gray-100
     }
 
+    /* Focus */
+    /* .tiptap .has-focus {
+        @apply border border-second-light
+    } */
+
 }

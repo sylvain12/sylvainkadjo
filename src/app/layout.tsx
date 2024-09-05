@@ -36,7 +36,7 @@ export default function RootLayout({
         href="/favicon/favicon-16x16.png"
       />
       <link rel="manifest" href="/site.webmanifest" />
-      <body className={`${sora.className} main-container`}>
+      <body className={`${sora.className} main-container dark`}>
         <NavbarComponent />
         {children}
         <FooterComponent />
