@@ -9,7 +9,7 @@
     "lint": "next lint",
     "prepare": "husky",
     "email": "bun run email dev --dir src/lib/utils/resend/emails",
-    "pages:build": "npx @cloudflare/next-on-pages",
+    "pages:build": "bunx @cloudflare/next-on-pages",
     "preview": "bun run pages:build && wrangler pages dev",
     "deploy": "bun run pages:build && wrangler pages deploy"
   },
