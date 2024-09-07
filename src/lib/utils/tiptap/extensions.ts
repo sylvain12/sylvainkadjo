@@ -32,7 +32,8 @@ export const editorExtensions = [
   ListItem,
   StarterKit.configure({
     codeBlock: false,
-    document: false
+    document: false,
+
   }),
   Link.configure({
     openOnClick: true,

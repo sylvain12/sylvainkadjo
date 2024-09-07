@@ -4,13 +4,12 @@ import { DateTime } from "luxon";
 import { Icon } from "@iconify/react";
 import { formatNumberWithK } from "@/lib/utils/utils";
 import Link from "next/link";
+import {usePostStore} from '../store'
 
 
-export type PostSpotlightProp = {
-  post: IBlogPost;
-};
+export default function PostSpotlightComponent() {
+const post = usePostStore(state => state.showCasePost)
 
-export default function PostSpotlightComponent({ post }: PostSpotlightProp) {
   return (
     <div className="posts__spotlight">
       {post && (

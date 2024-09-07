@@ -1,3 +1,5 @@
+"use client";
+
 import { Icon } from "@iconify/react";
 import { Editor } from "@tiptap/react";
 import { useCallback } from "react";
