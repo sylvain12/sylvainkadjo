@@ -1,10 +1,9 @@
-import type { Metadata } from "next";
-import { inter, sora, archivo } from "@/lib/shared/fonts";
-import "./globals.css";
-import NavbarComponent from "@/components/navbar";
 import FooterComponent from "@/components/footer";
-import clsx from "clsx";
+import NavbarComponent from "@/components/navbar";
 import SubscribeComponent from "@/components/subscribe";
+import { archivo } from "@/lib/shared/fonts";
+import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Blog - SK",
@@ -36,7 +35,7 @@ export default function RootLayout({
         href="/favicon/favicon-16x16.png"
       />
       <link rel="manifest" href="/site.webmanifest" />
-      <body className={`${sora.className} main-container dark`}>
+      <body className={`${archivo.className} main-container dark`}>
         <NavbarComponent />
         {children}
         <FooterComponent />
