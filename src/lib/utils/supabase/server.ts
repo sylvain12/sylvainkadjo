@@ -3,7 +3,7 @@ import { Database } from "./types/database.types";
 import { cookies } from "next/headers";
 
 const supageURL = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supageKey = process.env.NEXT_PUBLIC_SUPABASE_KEY;
+const supageKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 export const createClient = () => {
   const cookiesStore = cookies();
