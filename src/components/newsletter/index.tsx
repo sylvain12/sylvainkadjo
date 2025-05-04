@@ -104,6 +104,7 @@ const handleSubscribe = async () => {
           variant="second"
           type="button"
           onClick={handleSubscribe}
+          disabled={isPending}
           className={
             isPending ? "pointer-events-none opacity-5 cursor-wait" : ""
           }
