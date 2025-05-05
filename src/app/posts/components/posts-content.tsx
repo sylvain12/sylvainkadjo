@@ -7,6 +7,7 @@ import { usePostStore } from "../store";
 import PostListComponent from "./post-list";
 import PostLoaderComponent from "./post-loader";
 import PostSpotlightComponent from "./post-spotlight";
+import { toast }  from 'sonner'
 
 export default function PostsContent() {
   const setPosts = usePostStore((state) => state.setPosts);
@@ -14,7 +15,9 @@ export default function PostsContent() {
   const posts = usePostStore((state) => state.posts);
 
   const { isPending, execute, data } = useServerAction(fetchPostsAction, {
-    onError: ({ err }) => console.log(err.message),
+    onError: ({ err }) => {
+      console.log(err)
+    },
     onSuccess: ({ data }) =>
       data && console.log(`${data.length} posts loaded!`),
     initialData: posts,
@@ -24,11 +27,16 @@ export default function PostsContent() {
   useEffect(() => {
     const fetchData = async () => {
       const [data, err] = await execute();
-      if (err) return;
+      if (err) {
+        toast.error('Error while fetching posts...')
+      }
 
-      setPosts(data!);
-      setShowCasePost(data?.filter((post) => post.isShowcase)[0]!);
+      if (data && data.length !== 0) {
+        setPosts(data);
+        setShowCasePost(data.filter((post) => post.isShowcase)[0]!);
+      }
     };
+
     fetchData();
   }, [execute, setPosts, setShowCasePost]);
 

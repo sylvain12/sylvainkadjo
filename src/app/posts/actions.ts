@@ -5,6 +5,8 @@ import { createClient } from "@/lib/utils/supabase/server";
 import { IBlogPost } from "@/app/posts/models/types";
 import { z } from "zod";
 import { BlogPostSchema } from "./models/shemas";
+import { getImage } from "@/lib/utils/supabase/server";
+import { getRequestContext } from "@cloudflare/next-on-pages";
 
 export const getAllPostsAction = createServerAction().handler(async () => {
   const supabase = createClient();
@@ -49,3 +51,10 @@ export const updatePostContentAction = createServerAction()
 
     return data;
   });
+
+
+export const getPostsImage = async (path: string) => {
+  const { env } = getRequestContext();
+  const postImageBucket = env.NEXT_PUBLIC_SUPABASE_IMAGES_BUCKET;
+  return await getImage(path, postImageBucket);
+};

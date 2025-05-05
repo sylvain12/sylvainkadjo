@@ -11,10 +11,6 @@ export const createClient = () => {
   
   const supageURL = env.NEXT_PUBLIC_SUPABASE_URL;
   const supageKey = env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  
-  console.log("supabaseURL", supageURL);
-  console.log("supabaseKey", supageKey);
-  console.log(env)
 
   return createServerClient<Database>(supageURL!, supageKey!, {
     cookies: {
@@ -31,3 +27,10 @@ export const createClient = () => {
     },
   });
 };
+
+
+export const getImage = async (path: string, bucket: string) => {
+  const supabase  = createClient();
+  const { data } = supabase.storage.from(bucket).getPublicUrl(path);
+  return data.publicUrl;
+}
