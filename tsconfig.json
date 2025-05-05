@@ -32,7 +32,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/lib/utils/supabase/supabase-image-loader.ts"
+    "src/lib/utils/supabase/supabase-image-loader.ts",
+    "@cloudflare/workers-types/2024-09-05",
   ],
   "exclude": [
     "node_modules"

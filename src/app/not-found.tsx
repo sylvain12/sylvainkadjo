@@ -5,6 +5,8 @@ import { Metadata } from 'next';
 // import {useRouter} from 'next/navigation'
 import Link from "next/link"
 
+export const runtime = "edge";
+
 export const metadata: Metadata = {
   title: "Not Found - SK",
 };

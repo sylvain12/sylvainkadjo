@@ -51,6 +51,7 @@
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.2",
+    "@cloudflare/workers-types": "^4.20250505.0",
     "@faker-js/faker": "^8.4.1",
     "@iconify/react": "^5.0.2",
     "@types/luxon": "^3.4.2",
