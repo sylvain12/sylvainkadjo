@@ -14,7 +14,7 @@ export default function PostSpotlightComponent() {
     <div className="posts__spotlight">
       {post && (
         <div>
-          <div className="w-full h-300 mb-[2rem]">
+          <div className="posts__spotlight-image">
             {post.featureImageUrl && (
               <Image
                 src={`post_images/${post.featureImageUrl}`}
@@ -26,7 +26,7 @@ export default function PostSpotlightComponent() {
                   objectPosition: "center",
                 }}
                 alt={post.title}
-                className='h-[300px] max-md:h-[150px]'
+                className="h-[340px] max-md:h-[190px]"
               />
             )}
           </div>

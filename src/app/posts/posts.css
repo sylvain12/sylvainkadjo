@@ -2,16 +2,130 @@
 
     /* POSTS HEADER */
     .posts__header {
-        @apply flex items-center justify-center text-center 
+        @apply relative grid items-center overflow-hidden
+    }
+
+    .posts__header-bg {
+        @apply absolute inset-0 pointer-events-none
+    }
+
+    .posts__header-bg::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(circle at 14% 18%, rgba(240, 180, 91, 0.20), transparent 28%),
+            radial-gradient(circle at 86% 18%, rgba(77, 122, 164, 0.16), transparent 30%),
+            linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(77, 122, 164, 0.06));
+    }
+
+    .posts__header-bg::after {
+        content: "";
+        position: absolute;
+        inset: auto 8rem 4rem auto;
+        width: min(42rem, 34vw);
+        height: min(42rem, 34vw);
+        border: 1px solid rgba(77, 122, 164, 0.18);
+        border-radius: 4rem;
+        transform: rotate(-8deg);
+        box-shadow: inset 0 0 0 6rem rgba(255, 255, 255, 0.32);
     }
 
     .posts__header-text {
-        @apply text-[1.8rem] font-normal
+        @apply relative z-10 col-start-1 row-start-1 mx-auto flex w-full max-w-[1120px] flex-col items-start px-[3rem] pr-[46rem] text-left
+    }
+
+    .posts__header-kicker {
+        @apply mb-[1.6rem] rounded-full border border-light bg-white px-[1.4rem] py-[0.7rem] text-[1.2rem] font-semibold uppercase text-second shadow-sm
+    }
+
+    .posts__header-text h1 {
+        @apply max-w-[780px] text-[7.2rem] font-semibold leading-[0.94] text-text
+    }
+
+    .posts__header-subtitle {
+        @apply mt-[2.2rem] max-w-[660px] text-[1.9rem] font-light leading-[1.65] text-text
+    }
+
+    .posts__header-actions {
+        @apply mt-[3.2rem] flex flex-wrap items-center gap-[1.2rem]
+    }
+
+    .posts__header-action {
+        @apply inline-flex min-h-[5rem] items-center justify-center rounded-full border px-[2.6rem] text-[1.45rem] font-semibold shadow-sm transition duration-200 focus-visible:ring-2 focus-visible:ring-second focus-visible:ring-offset-2 focus-visible:ring-offset-white
+    }
+
+    .posts__header-action.primary {
+        @apply border-second bg-second text-white hover:-translate-y-[2px] hover:bg-second-light hover:shadow-lg
+    }
+
+    .posts__header-action.secondary {
+        @apply border-light bg-white text-text hover:-translate-y-[1px] hover:border-second hover:text-second hover:shadow-md
+    }
+
+    .posts__header-proof {
+        @apply mt-[3.2rem] flex flex-wrap gap-[0.8rem] text-[1.2rem] font-semibold text-second
+    }
+
+    .posts__header-proof span {
+        @apply rounded-full border border-light bg-white px-[1.2rem] py-[0.65rem] shadow-sm
+    }
+
+    .posts__header-visual {
+        @apply pointer-events-none relative z-10 col-start-1 row-start-1 mx-auto hidden w-full max-w-[1120px] justify-end px-[3rem] min-[920px]:flex
+    }
+
+    .posts__header-card {
+        @apply w-[36rem] rounded-[2.4rem] border border-light bg-white p-[2.2rem] text-left shadow-xl backdrop-blur
+    }
+
+    .posts__header-card-top {
+        @apply mb-[3rem] flex gap-[0.7rem]
+    }
+
+    .posts__header-card-top span {
+        @apply h-[0.9rem] w-[0.9rem] rounded-full bg-light
+    }
+
+    .posts__header-card-top span:first-child {
+        @apply bg-main
+    }
+
+    .posts__header-card-top span:nth-child(2) {
+        @apply bg-second
+    }
+
+    .posts__header-card-label {
+        @apply mb-[1rem] text-[1.15rem] font-semibold uppercase text-second
+    }
+
+    .posts__header-card h2 {
+        @apply text-[2.6rem] font-semibold leading-[1.15] text-text
+    }
+
+    .posts__header-card-grid {
+        @apply mt-[2.8rem] grid grid-cols-3 gap-[1rem]
+    }
+
+    .posts__header-card-grid div {
+        @apply rounded-[1.4rem] border border-light bg-light p-[1.2rem]
+    }
+
+    .posts__header-card-grid strong {
+        @apply block text-[1.8rem] font-semibold text-second
+    }
+
+    .posts__header-card-grid span {
+        @apply mt-[0.3rem] block text-[1.1rem] font-medium uppercase text-text
     }
 
     /* POST CONTENT */
     .posts__content {
-        @apply w-[680px] max-w-[680px] mx-auto
+        @apply w-full max-w-[1060px] mx-auto
+    }
+
+    .posts__list {
+        @apply grid grid-cols-2 gap-[2rem]
     }
 
     /* POST LIST ITEM*/
@@ -21,27 +135,31 @@
     } */
 
     .posts__list-item {
-        @apply py-[4rem] flex justify-between gap-[2rem]
+        @apply rounded-[1.8rem] border border-light bg-white p-[2.4rem] flex justify-between gap-[2rem] shadow-sm transition duration-200 hover:-translate-y-[3px] hover:border-second hover:shadow-xl
     }
 
     .posts__list-item:not(:last-child) {
-        @apply border-b border-b-light
+        @apply border-light
     }
 
     .posts__list-item:first-of-type {
-        @apply pt-0
+        @apply pt-[2.4rem]
     }
 
     .posts__list-item__content-title {
-        @apply text-[2.3rem] font-semibold mb-[1.65rem] leading-[25px]
+        @apply text-[2.15rem] font-semibold mb-[1.4rem] leading-[1.16] transition-colors
+    }
+
+    .posts__list-item:hover .posts__list-item__content-title {
+        @apply text-second
     }
 
     .posts__list-item__content-description {
-        @apply text-[1.75rem] mb-4 leading-[20px]
+        @apply text-[1.55rem] mb-4 leading-[1.55] font-light
     }
 
     .posts__list-item__content-date {
-        @apply text-[1.4rem] font-thin
+        @apply text-[1.25rem] font-light text-second
     }
 
     .posts__list-item__footer {
@@ -57,7 +175,7 @@
     }
 
     .posts__list-item__footer-left-reaction {
-        @apply flex items-center gap-1 font-thin
+        @apply flex items-center gap-1 font-thin text-[1.3rem]
     }
 
     .posts__list-item__content {
@@ -65,7 +183,7 @@
     }
 
     .posts__list-item__image {
-        @apply w-[150px]
+        @apply aspect-square w-[120px] shrink-0 overflow-hidden rounded-[1.2rem] bg-light
     }
 
 
@@ -85,19 +203,19 @@
     /* POST SPOTLIGHT */
 
     .posts__spotlight {
-        @apply border-b border-light mb-[4rem] pb-[4rem]
+        @apply mb-[3rem] rounded-[2.2rem] border border-light bg-white p-[1.2rem] shadow-md transition duration-200 hover:-translate-y-[3px] hover:shadow-xl
     }
 
     .posts__spotlight-title {
-        @apply text-[3rem] mb-[1rem] font-semibold max-md:text-[2.2rem]
+        @apply text-[3.4rem] mb-[1rem] font-semibold leading-[1.08] transition-colors max-md:text-[2.4rem]
     }
 
     .posts_spotlight-description {
-        @apply text-[1.8rem] mb-[1rem] max-md:text-[1.5rem]
+        @apply text-[1.75rem] mb-[1.2rem] font-light leading-[1.5] max-md:text-[1.5rem]
     }
 
     .posts__spotlight-content:hover .posts__spotlight-title {
-        @apply underline
+        @apply text-second
     }
 
     .posts__spotlight:hover .posts__spotlight-footer {
@@ -106,5 +224,57 @@
 
     .posts__spotlight-footer {
         @apply hidden opacity-0 items-center justify-between  mt-[1rem]
+    }
+
+    @media (max-width: 1024px) {
+        .posts__header-text {
+            @apply max-w-[860px] pr-[3rem]
+        }
+
+        .posts__header-text h1 {
+            @apply text-[5.6rem]
+        }
+
+        .posts__list {
+            @apply grid-cols-1
+        }
+    }
+
+    @media (max-width: 724px) {
+        .posts__header-bg::after {
+            display: none;
+        }
+
+        .posts__header-text {
+            @apply px-[2rem] pr-[2rem]
+        }
+
+        .posts__header-text h1 {
+            @apply text-[4.6rem] leading-[1.02]
+        }
+
+        .posts__header-subtitle {
+            @apply text-[1.65rem]
+        }
+
+        .posts__header-actions {
+            @apply w-full
+        }
+
+        .posts__header-action {
+            @apply flex-1 px-[1.6rem] text-[1.35rem]
+        }
+
+        .posts__header-proof {
+            @apply mt-[2.4rem]
+        }
+
+        .posts__list-item {
+            @apply p-[1.8rem]
+        }
+
+        .posts__list-item__image {
+            @apply hidden
+        }
     }
 }

@@ -2,7 +2,7 @@ export default function ProjectLoaderComponent() {
   return (
     <>
       {[1, 2, 3, 4, 5].map((index) => (
-        <div key={index} role="status" className="flex-1">
+        <div key={index} role="status" className="projects__loader-item">
           <div className="w-full">
             <div className="h-[1.6rem] bg-light max-w-[280px] mb-4"></div>
             <div className="h-[1.6rem] bg-light rounded-sm max-w-[260px] mb-[2rem]"></div>

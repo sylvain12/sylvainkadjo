@@ -21,6 +21,7 @@
   --color-second: #4D7AA4;
   --color-second-light: rgb(101, 161, 217);
   --color-light: #eeeeee;
+  --shadow-soft: 0 18px 50px rgba(42, 66, 87, 0.08);
   --bg-gradient: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(6, 57, 112, 0.2) 100%);
 
   --ff-serif: "Playfair Display", serif;
@@ -65,6 +66,11 @@
   outline: none;
 }
 
+*:focus-visible {
+  outline: 2px solid var(--color-second);
+  outline-offset: 4px;
+}
+
 html {
   font-size: 53.25%;
 }
@@ -76,7 +82,9 @@ body { */
 /* } */
 
 body {
-  background-color: var(--bg-white);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--bg-white) 96%, var(--color-second) 4%) 0%, var(--bg-white) 36rem),
+    var(--bg-white);
   color: var(--text-color);
   font-size: 1.5rem;
 }
@@ -90,19 +98,29 @@ a {
 .main-container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 80px 1fr 90px;
-  height: 100vh;
+  grid-template-rows: 88px 1fr auto;
+  min-height: 100vh;
   /* width: 100%; */
 }
 
 /* NAVBAR */
 .navbar {
   display: grid;
-  grid-template-columns: 300px 1fr 300px;
-  border-bottom: 1px solid var(--color-light);
+  grid-template-columns: minmax(180px, 300px) 1fr minmax(180px, 300px);
+  width: min(calc(100% - 3.2rem), 1180px);
+  min-height: 68px;
+  margin: 1rem auto;
+  border: 1px solid color-mix(in srgb, var(--color-light) 78%, var(--color-second) 22%);
+  border-radius: 999px;
   align-items: center;
   grid-column: 1/-1;
   grid-row: 1/2;
+  position: sticky;
+  top: 1rem;
+  z-index: 40;
+  background: color-mix(in srgb, var(--bg-white) 88%, transparent);
+  backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: var(--shadow-soft);
 }
 
 .navbar__logo {
@@ -128,65 +146,21 @@ a {
 /* POSTS PAGE */
 .posts {
   display: grid;
-  grid-template-columns: 20px 1fr 20px;
-  grid-template-rows: 150px 1fr;
+  grid-template-columns: minmax(2rem, 1fr) minmax(0, 1120px) minmax(2rem, 1fr);
+  grid-template-rows: minmax(560px, auto) 1fr;
   grid-column: 1/-1;
   grid-row: 2/3;
 }
 .posts__header {
   grid-column: 1 / -1;
   grid-row: 1 / 2;
-  background: var(--bg-gradient);
+  min-height: 560px;
+  background: transparent;
 }
 
 .posts__content {
     grid-column: 2/ 3;
-    padding: 6rem 0;
-}
-
-/* PROJECTS */
-/* .projects {
-  display: grid;
-  grid-template-columns: 1fr 300px;
-  grid-template-rows: 1fr;
-}
-
-.projects__content {
-  grid-column: 1 / 2;
-  grid-row: 1/ -1;
-}
-
-.projects__sidebar {
-    grid-column: 2 / -1;
-    grid-row: 1/ -1;
-} */
-
-.projects__list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 4rem;
-  row-gap: 6rem;
-  grid-auto-flow: row;
-}
-
-.projects__list-item::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 95%;
-    height: 95%;
-    background: var(--color-second);
-    -webkit-transform: translate(18px, -5px) rotate(-5deg);
-    -ms-transform: translate(18px, -5px) rotate(-5deg);
-    transform: translate(18px, -5px) rotate(-5deg);
-    border-radius: inherit;
-    z-index: -1;
-    transition: transform .2s;
-}
-
-.projects__list-item:hover::before {
-  transform: rotate(0deg);
+    padding: 7rem 0 8rem;
 }
 
 /* TITAP EDITOR */
@@ -244,33 +218,41 @@ a {
 /* DARKMODE */
 
 .nav-darkmode {
-  background: var(--color-light);
-  border: 1px solid var(--color-second);
-  border-radius: 11px;
-  box-shadow: none;
+  background: var(--bg-white);
+  border: 1px solid color-mix(in srgb, var(--color-second) 72%, var(--color-light) 28%);
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(42, 66, 87, 0.08);
   box-sizing: border-box;
   cursor: pointer;
   color: var(--color-second);
   display: block;
-  height: 22px;
+  height: 28px;
   margin: 0;
   outline: none;
-  padding: 1px;
-  width: 40px;
+  padding: 3px;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+  width: 50px;
+}
+
+.nav-darkmode:hover {
+  border-color: var(--color-second);
+  box-shadow: 0 10px 24px rgba(42, 66, 87, 0.12);
+  transform: translateY(-1px);
 }
 
 .nav-darkmode span {
-  background: var(--bg-white);
-  border-radius: 9px;
+  background: var(--color-second);
+  border-radius: 999px;
   box-sizing: border-box;
+  color: #fff;
   display: block;
-  padding: 3px;
+  padding: 4px;
   margin-left: 0;  
   position: relative;
   transition-property: margin-left, transform;
   transition-duration: .2s;
   transition-timing-function: ease-out;
-  width: 18px;
+  width: 20px;
 }
 
 .nav-darkmode iconify-icon {
@@ -284,6 +266,52 @@ a {
 .nav-darkmode.dark span {
     margin-left: 100%;
     transform: translateX(-100%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .navbar {
+    animation: pageFadeIn .36s ease-out both;
+  }
+
+  .posts__header-text {
+    animation: heroRise .58s ease-out both;
+  }
+
+  .posts__spotlight,
+  .posts__list-item {
+    animation: heroRise .52s ease-out both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes heroRise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ********* Breakpoint ******** */
@@ -302,14 +330,9 @@ a {
     width: 756px;
   } 
 
-/* POSTS */
-.posts {
-  grid-template-columns: 1fr 725px 1fr;
-}
-
     /* NAVBAR */
-    .navbar {
-    display: flex;
+  .navbar {
+      grid-template-columns: 150px 1fr auto;
       justify-content: space-between;
       align-items: center;
     }
@@ -320,6 +343,12 @@ a {
 }
 
 @media (max-width: 724px) {
+  .navbar {
+    grid-template-columns: auto 1fr auto;
+    min-height: 64px;
+    width: min(calc(100% - 2.4rem), 1180px);
+  }
+
 /* PROJECT */
   .projects__list {
     grid-template-columns: 1fr;
@@ -333,11 +362,17 @@ a {
 
 /* POSTS */
 .posts {
-    grid-template-columns: 6rem 1fr 6rem;
+    grid-template-columns: 2rem 1fr 2rem;
+    grid-template-rows: minmax(690px, auto) 1fr;
   }
+
+.posts__header {
+  min-height: 690px;
+}
 
 .posts__content {
   width: 100%;
+  padding: 4rem 0 5rem;
 }
 
 }

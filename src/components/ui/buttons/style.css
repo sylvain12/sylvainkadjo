@@ -1,6 +1,6 @@
 @layer components {
     .btn {
-        @apply text-[1.2rem] border font-medium px-[1.05em] py-[0.725em]
+        @apply rounded-full text-[1.2rem] border font-semibold px-[1.05em] py-[0.725em] transition duration-200 focus-visible:ring-2 focus-visible:ring-second focus-visible:ring-offset-2 focus-visible:ring-offset-white
     }
 
     .btn.btn-disabled {
@@ -8,7 +8,7 @@
     }
 
     .btn.btn-second {
-        @apply border-second bg-second text-white transition hover:bg-second-light hover:border-second-light
+        @apply border-second bg-second text-white shadow-sm hover:-translate-y-[1px] hover:bg-second-light hover:border-second-light hover:shadow-md
     }
 
     .btn.btn-medium {

@@ -7,12 +7,8 @@ export const navMenuItems: INavigationLinkItem[] = [
     isActive: true,
   },
   {
-    name: "Projects",
-    url: "/projects",
-  },
-  {
-    name: "About",
-    url: "/about",
+    name: "Blog",
+    url: "/#latest-writing",
   },
 ];
 

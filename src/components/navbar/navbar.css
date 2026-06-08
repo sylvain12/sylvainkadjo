@@ -1,24 +1,36 @@
 @layer components {
     /* NAV LOGO */
     .navbar__logo {
-        @apply pl-[2rem]
+        @apply pl-[1.8rem] flex items-center
+    }
+
+    .navbar__logo a {
+        @apply inline-flex min-h-[4.4rem] items-center rounded-full px-[0.8rem] transition duration-200 hover:bg-light hover:opacity-90 focus-visible:ring-2 focus-visible:ring-second focus-visible:ring-offset-4 focus-visible:ring-offset-white
     }
     /* NAV MENU */
     .navbar__menu {
         @apply flex items-center justify-center h-full text-center
     }
 
+    .navbar__menu-list {
+        @apply flex items-center justify-center gap-[0.4rem] rounded-full border border-light bg-white px-[0.5rem] py-[0.5rem] shadow-sm
+    }
+
     .navbar__menu-item {
-        @apply p-[2rem] text-[1.5rem] uppercase font-light
+        @apply relative rounded-full px-[1.7rem] py-[0.9rem] text-[1.25rem] uppercase font-semibold tracking-normal transition duration-200 hover:bg-light hover:text-second focus-visible:ring-2 focus-visible:ring-second focus-visible:ring-offset-2 focus-visible:ring-offset-white
     }
 
     .navbar__menu-item.active {
-        @apply text-second font-bold
+        @apply bg-second text-white shadow-md hover:bg-second hover:text-white
+    }
+
+    .navbar__menu-toggle {
+        @apply hidden h-[4.6rem] w-[4.6rem] items-center justify-center rounded-full border border-light bg-white text-second shadow-sm transition duration-200 hover:border-second hover:bg-light focus-visible:ring-2 focus-visible:ring-second focus-visible:ring-offset-2 focus-visible:ring-offset-white
     }
 
     /* NAV RIGHT */
     .navbar__right {
-        @apply flex justify-end items-center gap-[2rem] pr-[2rem] h-full
+        @apply flex justify-end items-center gap-[1.2rem] pr-[1.8rem] h-full
     }
 
     .navbar__right-search {
@@ -27,5 +39,35 @@
 
     .navbar__right-socials {
         @apply flex gap-[1rem] text-second
+    }
+
+    @media (max-width: 724px) {
+        .navbar__logo {
+            @apply pl-[1rem]
+        }
+
+        .navbar__menu {
+            @apply col-start-2 justify-self-end
+        }
+
+        .navbar__menu-toggle {
+            @apply flex
+        }
+
+        .navbar__menu-list {
+            @apply invisible absolute left-[1.6rem] right-[1.6rem] top-[7.6rem] z-30 flex-col items-stretch gap-[0.4rem] rounded-[1.8rem] border border-light bg-white p-[0.8rem] text-left opacity-0 shadow-xl transition duration-200
+        }
+
+        .navbar__menu-list.is-open {
+            @apply visible translate-y-0 opacity-100
+        }
+
+        .navbar__menu-item {
+            @apply w-full rounded-[1.2rem] px-[1.4rem] py-[1.2rem] text-left
+        }
+
+        .navbar__right {
+            @apply col-start-3 pr-[1rem]
+        }
     }
 }

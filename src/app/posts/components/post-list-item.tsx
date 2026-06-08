@@ -11,9 +11,11 @@ export type PostListItemProp = {
 
 export default function PostListItemComponent({ post }: PostListItemProp) {
   return (
-    <div className="posts__list-item">
+    <article className="posts__list-item">
       <div className="posts__list-item__content">
-        <h3 className="posts__list-item__content-title">{post.title}</h3>
+        <h3 className="posts__list-item__content-title">
+          <Link href={`p/${post.slug}`}>{post.title}</Link>
+        </h3>
         <p className="posts__list-item__content-description">{post.excerpt}</p>
         <p className="posts__list-item__content-date">
           <span>
@@ -48,9 +50,9 @@ export default function PostListItemComponent({ post }: PostListItemProp) {
           width={150}
           height={150}
           alt={post.title}
-          style={{ objectFit: "contain" }}
+          style={{ objectFit: "cover", width: "100%", height: "100%" }}
         />
       </div>
-    </div>
+    </article>
   );
 }

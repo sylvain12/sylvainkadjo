@@ -1,19 +1,17 @@
 "use client";
 
 import Button from "@/components/ui/buttons";
-import { navSocialsLinks } from "@/lib/shared/constant";
+import { useFormErrorStore } from "@/lib/store/error";
+import { useDarkMode } from "@/lib/store/darkmode";
 import { Icon } from "@iconify/react";
-import Link from "next/link";
+import clsx from "clsx";
+import { useEffect } from "react";
+import { useSubscriberStore } from "../newsletter/store";
 import { useSubscribevisibilitystore } from "../subscribe/store";
-import { useDarkMode } from '@/lib/store/darkmode';
-import clsx from 'clsx';
-import { useEffect } from 'react';
-import { useFormErrorStore } from '@/lib/store/error';
-import { useSubscriberStore } from '../newsletter/store';
 
 export default function NavRightComponent() {
   const { setVisibility } = useSubscribevisibilitystore();
-  const {isDark, toggleDarkmode} = useDarkMode()
+  const { isDark, toggleDarkmode } = useDarkMode();
   const { setSubscriber } = useSubscriberStore();
   const { resetForm } = useFormErrorStore();
 
@@ -35,19 +33,15 @@ export default function NavRightComponent() {
     resetForm();
     setSubscriber("");
     setVisibility(true);
-  }
+  };
 
   return (
     <div className="navbar__right">
-      {/* <div className="navbar__right-socials">
-        {navSocialsLinks.map((social) => (
-          <Link key={social.label} target="_blank" href={social.link}>
-            <Icon icon={social.icon} width={24} />
-          </Link>
-        ))}
-      </div> */}
       <button
         className={clsx("nav-darkmode", { dark: isDark })}
+        type="button"
+        aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+        aria-pressed={isDark}
         onClick={toggleDarkmode}
       >
         <span>
@@ -62,10 +56,6 @@ export default function NavRightComponent() {
         type="button"
         onClick={handleVisibility}
       />
-
-      {/* <div className="navbar__right-search">
-        <Icon icon="circum:search" width={24} />
-      </div> */}
     </div>
   );
 }

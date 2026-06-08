@@ -41,7 +41,7 @@ export default function PostsContent() {
   }, [execute, setPosts, setShowCasePost]);
 
   return (
-    <div className="posts__content">
+    <section className="posts__content" id="latest-writing" aria-label="Latest writing">
       {isPending && data?.length === 0 ? (
         <PostLoaderComponent />
       ) : (
@@ -50,6 +50,6 @@ export default function PostsContent() {
           <PostListComponent />
         </>
       )}
-    </div>
+    </section>
   );
 }

@@ -14,6 +14,7 @@ export const getAllPostsAction = createServerAction().handler(async () => {
     .from("posts")
     .select(`*, tags (id, name), author:users (id, first_name, last_name)`)
     .returns<IBlogPost[]>();
+
   return data;
 });
 
@@ -24,6 +25,7 @@ export const fetchPostsAction = createServerAction().handler(async () => {
     .select(`*, tags (id, name), author:users (id, first_name, last_name)`)
     .filter("status", "eq", "published")
     .returns<IBlogPost[]>();
+
   return data;
 });
 

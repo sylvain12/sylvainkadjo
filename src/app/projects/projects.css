@@ -1,23 +1,31 @@
 @layer components {
     .projects {
-        @apply w-[1035px] mx-auto py-[4rem]
+        @apply w-full max-w-[1180px] mx-auto px-[2.4rem] py-[5rem] max-md:px-[2rem] max-md:py-[3.2rem];
+        width: min(100%, 100vw);
+        max-width: min(1180px, 100vw);
     }
 
     /* POSTS HEADER */
     .projects__header {
-        @apply mb-[6rem]
+        @apply mb-[5.5rem] flex items-end justify-between gap-[3rem] border-b border-light pb-[3.2rem] max-md:flex-col max-md:items-start max-md:gap-[2.4rem] max-md:mb-[3.2rem]
+    }
+
+    .projects__header-eyebrow {
+        @apply mb-[1.2rem] inline-flex text-[1.2rem] font-semibold uppercase text-second
     }
 
     .projects__header-title {
-        @apply text-[6rem] font-thin
+        @apply text-[6rem] font-semibold leading-none max-md:text-[4rem]
     }
 
     .projects__header-text {
-        @apply text-[2rem] max-w-[525px] mb-[2rem]
+        @apply mt-[1.6rem] max-w-[620px] text-[1.85rem] leading-[1.65] text-text max-md:text-[1.65rem];
+        opacity: .82;
     }
 
     .projects__header-link {
-        @apply flex items-center gap-2 underline text-second text-[2rem]
+        @apply inline-flex min-h-[44px] shrink-0 items-center gap-2 rounded-[5px] border px-[1.8rem] text-[1.6rem] font-semibold text-second transition hover:-translate-y-1 hover:border-second hover:bg-second hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-second;
+        border-color: color-mix(in srgb, var(--color-second) 25%, transparent);
     }
 
     /* SIDEBAR */
@@ -30,39 +38,91 @@
         /* @apply p-[4rem] */
     }
 
+    .projects__list {
+        @apply grid grid-cols-3 gap-[3rem] max-lg:grid-cols-2 max-md:grid-cols-1 max-md:gap-[2rem]
+    }
+
     .projects__list-item {
-        @apply p-[2rem] relative w-full h-[190px]  bg-light rounded-[5px] flex flex-col justify-center transition;
+        @apply relative flex min-h-[360px] w-full flex-col overflow-hidden rounded-[8px] border border-light bg-white p-[2.4rem] shadow-[0_18px_45px_rgba(60,59,59,0.08)] transition duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_24px_60px_rgba(77,122,164,0.18)] max-md:min-h-0
+    }
+
+    .projects__list-item:hover {
+        border-color: color-mix(in srgb, var(--color-second) 30%, transparent);
+    }
+
+    .projects__list-item::before {
+        @apply absolute inset-x-0 top-0 h-[4px] bg-main content-['']
     }
 
     .projects__list-item-content {
-        @apply pr-[190px]
+        @apply flex flex-1 flex-col justify-end pt-[4.8rem]
+    }
+
+    .projects__list-item-content--with-image {
+        @apply justify-start pt-[15rem] max-md:pt-[13rem]
     }
 
     .projects__list-item-category {
-        @apply text-second text-[1.3rem] font-semibold uppercase underline mb-3
+        @apply mb-[1.2rem] inline-flex w-fit rounded-full px-[1.1rem] py-[.55rem] text-[1.1rem] font-bold uppercase text-second no-underline;
+        background-color: color-mix(in srgb, var(--color-second) 10%, transparent);
     }
 
     .projects__list-item-name {
-        @apply text-[2.2rem] font-semibold mb-1
+        @apply mb-[.8rem] text-[2.35rem] font-semibold leading-[1.15] text-text max-md:text-[2.1rem]
     }
 
     .projects__list-item-description  {
-        @apply mb-[1.5rem]
+        @apply mb-[2rem] text-[1.55rem] leading-[1.65] text-text;
+        opacity: .76;
     }
 
     .projects__list-item-links {
-        @apply absolute right-[2rem] top-[1.8rem] flex gap-6 text-second font-bold
+        @apply absolute right-[1.6rem] top-[1.6rem] z-10 flex gap-[.8rem] text-second font-bold
+    }
+
+    .projects__list-item-link {
+        @apply grid h-[44px] w-[44px] place-items-center rounded-full border bg-white shadow-[0_10px_24px_rgba(60,59,59,0.12)] transition hover:-translate-y-1 hover:bg-second hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-second;
+        border-color: color-mix(in srgb, var(--bg-white) 80%, transparent);
     }
 
     .projects__list-item-tags {
-        @apply flex flex-wrap gap-2
+        @apply mt-auto flex flex-wrap gap-[.8rem]
     }
 
     .projects__list-item-tags span {
-        @apply bg-white px-3 py-2 rounded-[5px] text-[1.2rem]
+        @apply rounded-full border border-light px-[1rem] py-[.55rem] text-[1.2rem] font-medium text-text;
+        background-color: color-mix(in srgb, var(--color-light) 65%, transparent);
+        opacity: .86;
     }
 
     .projects__list-item-image {
-        @apply absolute right-[2rem] bottom-[2rem] w-[150px] h-[90px] overflow-hidden rounded-[5px] bg-white
+        @apply absolute inset-x-[1.2rem] top-[1.2rem] h-[150px] overflow-hidden rounded-[6px] bg-light
+    }
+
+    .projects__list-item-image::after {
+        @apply absolute inset-0 content-[''];
+        background: linear-gradient(180deg, transparent 45%, rgba(60, 59, 59, .2));
+    }
+
+    .projects__list-item-image-img {
+        @apply h-full w-full object-cover transition duration-300 ease-out
+    }
+
+    .projects__list-item:hover .projects__list-item-image-img {
+        @apply scale-105
+    }
+
+    .projects__loader-item {
+        @apply min-h-[260px] rounded-[8px] border border-light bg-white p-[2.4rem] shadow-[0_18px_45px_rgba(60,59,59,0.08)]
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .projects__header-link,
+        .projects__list-item,
+        .projects__list-item-link,
+        .projects__list-item-image-img {
+            transition: none;
+            transform: none;
+        }
     }
 }
