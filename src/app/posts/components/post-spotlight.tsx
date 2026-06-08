@@ -1,17 +1,14 @@
+"use client";
+
 import Image from "next/image";
-import { IBlogPost } from "../models/types";
 import { DateTime } from "luxon";
 import { Icon } from "@iconify/react";
 import { formatNumberWithK } from "@/lib/utils/utils";
 import Link from "next/link";
-import {usePostStore} from '../store'
-import { getPostsImage } from "../actions";
-import { getRequestContext } from '@cloudflare/next-on-pages'
-import React, { useState, useEffect } from 'react';
+import { usePostStore } from "../store";
 
 export default function PostSpotlightComponent() {
-const post = usePostStore(state => state.showCasePost)
-
+  const post = usePostStore((state) => state.showCasePost);
 
   return (
     <div className="posts__spotlight">

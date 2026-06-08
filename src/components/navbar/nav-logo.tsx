@@ -9,12 +9,9 @@ export default function NavLogoComponent() {
         <Image
           src="sylvainkadjo-assets/sylvainkadjo_logo.png"
           alt="SYLVAINKADJO Logo"
-          width={40}
+          width={80}
           height={40}
-          style={{
-            width: "120",
-            height: "auto",
-          }}
+          className="object-contain h-auto w-16"
         />
       </Link>
     </div>

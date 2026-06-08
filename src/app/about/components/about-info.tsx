@@ -7,9 +7,9 @@ export default function AboutInfoComponent() {
 return (
   <div className="about__info">
     <Image
-      width={150}
-      height={150}
-      className="about__info-profile"
+      width={80}
+      height={50}
+      className="about__info-profile h-auto w-20"
       src="sylvainkadjo-assets/sylvainkadjo_profile_picture.png"
       alt="Sylvain KADJO profile picture"
       onLoad={() => <div>Loading...</div>}

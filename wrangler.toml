@@ -6,7 +6,10 @@ compatibility_date = "2024-09-05"
 
 [vars]
 BUN_VERSION = "latest"
-NEXT_PUBLIC_SUPABASE_IMAGES_BUCKET='post_images'
+NEXT_PUBLIC_SUPABASE_POST_IMAGES_BUCKET='post_images'
+NEXT_PUBLIC_SUPABASE_ASSET_IMAGES_BUCKET='sylvainkadjo-assets'
+NEXT_PUBLIC_SUPABASE_URL="https://urlalngimlynwkvmcoml.supabase.co"
+NEXT_PUBLIC_SUPABASE_ANON_KEY="sb_publishable_CKoVz4KxUyaDtfRjEZtkjQ_C963Psp7"
 
 [env.production]
 compatibility_flags = [ "nodejs_compat" ]

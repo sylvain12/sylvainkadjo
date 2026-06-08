@@ -7,6 +7,11 @@ export interface IProject {
   name: string;
   description: string;
   tags?: ITag[];
+  image?: string | null;
+  imageUrl?: string | null;
+  image_url?: string | null;
+  featureImageUrl?: string | null;
+  feature_image_url?: string | null;
   repository?: string;
   website?: string;
   category?: "package" | "data & ai" | "software" | "design";
