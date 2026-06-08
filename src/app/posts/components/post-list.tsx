@@ -11,11 +11,18 @@ export default function PostListComponent() {
   const notShowcasePosts = useMemo(() => posts.filter(post => !post.isShowcase), [posts])
 
   return (
-    <div className="posts__list">
-      {notShowcasePosts &&
-        notShowcasePosts.map((post) => (
-          <PostListItemComponent key={post.id} post={post} />
-        ))}
-    </div>
+    <>
+      {notShowcasePosts.length === 0 ? (
+        <div className="posts__empty">
+          <p>No additional posts are available yet.</p>
+        </div>
+      ) : (
+        <div className="posts__list">
+          {notShowcasePosts.map((post) => (
+            <PostListItemComponent key={post.id} post={post} />
+          ))}
+        </div>
+      )}
+    </>
   );
 }

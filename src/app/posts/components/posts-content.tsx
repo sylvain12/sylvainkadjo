@@ -46,6 +46,16 @@ export default function PostsContent() {
         <PostLoaderComponent />
       ) : (
         <>
+          <div className="posts__section-header">
+            <p className="posts__section-kicker">Latest writing</p>
+            <div>
+              <h2>Notes on software, systems, and product craft.</h2>
+              <p>
+                Practical essays from building interfaces, shipping products,
+                and keeping modern web apps fast at the edge.
+              </p>
+            </div>
+          </div>
           {<PostSpotlightComponent />}
           <PostListComponent />
         </>

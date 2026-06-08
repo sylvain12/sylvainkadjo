@@ -10,20 +10,28 @@ export type PostListItemProp = {
 };
 
 export default function PostListItemComponent({ post }: PostListItemProp) {
+  const publishedDate = DateTime.fromISO(post.publishedDate).toFormat(
+    "LLL dd, yyyy"
+  );
+
   return (
     <article className="posts__list-item">
       <div className="posts__list-item__content">
+        <div className="posts__list-item__meta">
+          <span>{publishedDate}</span>
+          <span>{`${post.author.first_name} ${post.author.last_name}`}</span>
+        </div>
         <h3 className="posts__list-item__content-title">
-          <Link href={`p/${post.slug}`}>{post.title}</Link>
+          <Link href={`/p/${post.slug}`}>{post.title}</Link>
         </h3>
         <p className="posts__list-item__content-description">{post.excerpt}</p>
-        <p className="posts__list-item__content-date">
-          <span>
-            {DateTime.fromISO(post.publishedDate).toFormat("LLL dd, yyyy")}
-          </span>{" "}
-          -{" "}
-          <span className="uppercase">{`${post.author.first_name} ${post.author.last_name}`}</span>
-        </p>
+        {post.tags?.length > 0 && (
+          <div className="posts__list-item__tags" aria-label="Post tags">
+            {post.tags.slice(0, 3).map((tag) => (
+              <span key={tag.id}>{tag.name}</span>
+            ))}
+          </div>
+        )}
 
         <div className="posts__list-item__footer">
           <div className="posts__list-item__footer-left">

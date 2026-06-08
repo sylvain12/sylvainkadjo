@@ -4,6 +4,7 @@ import { IBlogPost } from "@/app/posts/models/types";
 import { DateTime } from "luxon";
 import PostContentComponent from './post-content';
 import Image from "next/image";
+import Link from "next/link";
 
 type PostDetailProp = {
   post: IBlogPost;
@@ -13,23 +14,26 @@ export default function PostDetailComponents({ post }: PostDetailProp) {
   return (
     <>
       {post && (
-        <div className="post-details">
-          <div className="post-details__header">
+        <article className="post-details">
+          <header className="post-details__header">
+            <Link href="/#latest-writing" className="post-details__back-link">
+              Back to writing
+            </Link>
+            {post.tags?.length > 0 && (
+              <div className="post-details__header-tags">
+                {post.tags.map((tag) => <span key={tag.id}>{tag.name}</span>)}
+              </div>
+            )}
             <h1 className="post-details__header-title">{post.title}</h1>
             <p className="post-details__header-description">{post.excerpt}</p>
-            <p className="post-details__header-author">
+            <div className="post-details__header-author">
               <span>
                 {DateTime.fromISO(post.publishedDate).toFormat("LLL dd, yyyy")}
-              </span>{" "}
-              -{" "}
-              <span className="uppercase font-normal">{`${post.author.first_name} ${post.author.last_name}`}</span>
-            </p>
-            <div className="post-details__header-tags">
-              {post.tags &&
-                post.tags.map((tag) => <span key={tag.id}>{tag.name}</span>)}
+              </span>
+              <span>{`${post.author.first_name} ${post.author.last_name}`}</span>
             </div>
-          </div>
-          <div className="w-full h-300 mb-[4rem]">
+          </header>
+          <div className="post-details__image">
             {post.featureImageUrl && (
               <Image
                 src={`post_images/${post.featureImageUrl}`}
@@ -41,7 +45,7 @@ export default function PostDetailComponents({ post }: PostDetailProp) {
                   objectPosition: "center",
                 }}
                 alt={post.title}
-                className='h-[300px] max-md:h-[200px]'
+                className="post-details__image-img"
               />
             )}
           </div>
@@ -50,7 +54,7 @@ export default function PostDetailComponents({ post }: PostDetailProp) {
 
       </div> */}
           {post.content && <PostContentComponent content={post.content} />}
-        </div>
+        </article>
       )}
     </>
   );

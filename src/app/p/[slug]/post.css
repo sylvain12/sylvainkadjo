@@ -1,40 +1,195 @@
 @layer components {
 
-.post-details__container {
-    @apply w-[650px] mx-auto py-[6rem] text-[1.8rem] max-md:w-[525px] max-sm:w-[425px]
-}
-
-/* POST DETAILS */
-    .post-details__header {
-        @apply mb-[5rem]
+    .post-details__container {
+        @apply mx-auto w-full max-w-[980px] px-[3rem] py-[6.5rem] text-[1.8rem]
     }
 
-.post-details__header-title {
-    @apply text-[4rem] font-bold mb-8 leading-[42px] max-md:text-[3rem] max-md:leading-[35px]
- }
+    /* POST DETAILS */
+    .post-details {
+        @apply mx-auto w-full
+    }
 
-.post-details__header-description {
-    @apply mb-8
- }
+    .post-details__header {
+        @apply mx-auto mb-[3.2rem] flex max-w-[820px] flex-col items-start
+    }
 
-.post-details__header-author {
-    @apply font-thin text-[1.4rem] mb-8
-}
+    .post-details__back-link {
+        @apply mb-[2rem] inline-flex min-h-[4.4rem] items-center rounded-full border border-light bg-white px-[1.6rem] text-[1.25rem] font-semibold uppercase text-second shadow-sm transition duration-200 hover:-translate-y-[1px] hover:border-second hover:shadow-md focus-visible:ring-2 focus-visible:ring-second focus-visible:ring-offset-4 focus-visible:ring-offset-white
+    }
 
-.post-details__header-tags {
-    @apply flex gap-2 text-[1.2rem]
-}
+    .post-details__header-title {
+        @apply mb-[2rem] max-w-[820px] text-[5.8rem] font-semibold leading-[0.98] text-text
+    }
 
-.post-details__header-tags {
-        @apply flex flex-wrap gap-2
+    .post-details__header-title,
+    .post-details__body :where(h1, h2, h3, h4) {
+        text-wrap: balance;
+    }
+
+    .post-details__header-description {
+        @apply mb-[2rem] max-w-[760px] text-[2rem] font-light leading-[1.65] text-text
+    }
+
+    .post-details__header-author {
+        @apply flex flex-wrap items-center gap-x-[1rem] gap-y-[0.4rem] text-[1.25rem] font-semibold uppercase text-second
+    }
+
+    .post-details__header-author span:not(:last-child)::after {
+        content: "";
+        display: inline-block;
+        width: 0.35rem;
+        height: 0.35rem;
+        margin-left: 1rem;
+        border-radius: 999px;
+        background: currentColor;
+        vertical-align: middle;
+        opacity: .55;
+    }
+
+    .post-details__header-tags {
+        @apply mb-[1.8rem] flex flex-wrap gap-[0.8rem]
     }
 
     .post-details__header-tags span {
-        @apply bg-light px-3 py-2 rounded-[5px] text-[1.2rem]
+        @apply rounded-full border border-light bg-white px-[1.1rem] py-[0.55rem] text-[1.15rem] font-semibold text-second shadow-sm
     }
 
-.post-details__loader-items:not(:last-child) {
-    @apply mb-[4rem]
-}
+    .post-details__image {
+        @apply mx-auto mb-[5rem] w-full max-w-[920px] overflow-hidden rounded-[1.8rem] border border-light bg-light shadow-lg
+    }
 
+    .post-details__image-img {
+        @apply h-[42rem] w-full
+    }
+
+    .post-details__body {
+        @apply mx-auto max-w-[720px] text-[1.85rem] leading-[1.8] text-text
+    }
+
+    .post-details__body :where(h1, h2, h3, h4) {
+        @apply scroll-mt-[10rem] font-semibold text-text
+    }
+
+    .post-details__body h1 {
+        @apply mt-[5rem] mb-[1.8rem] text-[4rem] leading-[1.08]
+    }
+
+    .post-details__body h2 {
+        @apply mt-[4.8rem] mb-[1.6rem] text-[3.2rem] leading-[1.14]
+    }
+
+    .post-details__body h3 {
+        @apply mt-[3.8rem] mb-[1.2rem] text-[2.4rem] leading-[1.22]
+    }
+
+    .post-details__body p {
+        @apply my-[1.8rem] font-light leading-[1.82]
+    }
+
+    .post-details__body a {
+        @apply font-medium text-second underline decoration-light underline-offset-4 transition-colors hover:decoration-second focus-visible:ring-2 focus-visible:ring-second focus-visible:ring-offset-4 focus-visible:ring-offset-white
+    }
+
+    .post-details__body ul,
+    .post-details__body ol {
+        @apply my-[2rem] pl-[2.4rem]
+    }
+
+    .post-details__body li {
+        @apply my-[0.8rem] pl-[0.4rem] font-light leading-[1.75]
+    }
+
+    .post-details__body blockquote {
+        @apply my-[3rem] rounded-r-[1.2rem] border-l-[0.35rem] border-main bg-light px-[2.2rem] py-[1.4rem] text-[2rem] font-light leading-[1.65] text-text
+    }
+
+    .post-details__body blockquote p {
+        @apply my-[0.6rem]
+    }
+
+    .post-details__body img {
+        @apply my-[3rem] rounded-[1.4rem] border border-light shadow-md
+    }
+
+    .post-details__body pre {
+        @apply my-[3rem] overflow-x-auto rounded-[1.4rem] border border-light bg-[#18202a] p-[2rem] text-[1.45rem] leading-[1.7] text-white shadow-md
+    }
+
+    .post-details__body code {
+        @apply rounded-[0.6rem] bg-light px-[0.55rem] py-[0.2rem] text-[1.45rem] font-medium text-second
+    }
+
+    .post-details__body pre code {
+        @apply bg-transparent p-0 text-[inherit] text-white
+    }
+
+    .post-details__body hr {
+        @apply my-[4rem] border-light
+    }
+
+    .post-details__loader {
+        @apply mx-auto max-w-[760px] rounded-[1.8rem] border border-light bg-white p-[2rem] shadow-sm
+    }
+
+    .post-details__loader-items:not(:last-child) {
+        @apply mb-[4rem]
+    }
+
+    @media (max-width: 724px) {
+        .post-details__container {
+            @apply px-[2rem] py-[4.5rem]
+        }
+
+        .post-details__header-title {
+            @apply text-[3.8rem] leading-[1.04]
+        }
+
+        .post-details__header-description {
+            @apply text-[1.7rem]
+        }
+
+        .post-details__image {
+            @apply mb-[3.4rem] rounded-[1.4rem]
+        }
+
+        .post-details__image-img {
+            @apply h-[24rem]
+        }
+
+        .post-details__body {
+            @apply text-[1.65rem] leading-[1.78]
+        }
+
+        .post-details__body h1 {
+            @apply text-[3.2rem]
+        }
+
+        .post-details__body h2 {
+            @apply text-[2.7rem]
+        }
+
+        .post-details__body h3 {
+            @apply text-[2.2rem]
+        }
+
+        .post-details__body pre {
+            @apply -mx-[0.6rem] rounded-[1rem] text-[1.35rem]
+        }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        .post-details__header,
+        .post-details__image,
+        .post-details__body {
+            animation: heroRise .52s ease-out both;
+        }
+
+        .post-details__image {
+            animation-delay: .04s;
+        }
+
+        .post-details__body {
+            animation-delay: .08s;
+        }
+    }
 }

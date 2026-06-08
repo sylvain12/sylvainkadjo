@@ -24,10 +24,11 @@ export default function PostContentComponent({ content }: PostContentProps) {
       }).configure({ lowlight, defaultLanguage: "plaintext" }),
     ],
     content: content,
+    immediatelyRender: false,
     editorProps: {
       attributes: {
         class:
-          "prose sm:prose-base lg:prose-lg xl:prose-2xl m-5 focus:outline-none",
+          "post-details__body prose sm:prose-base lg:prose-lg xl:prose-2xl focus:outline-none",
       },
     },
     editable: false,

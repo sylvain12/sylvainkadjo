@@ -13,7 +13,7 @@ export default function PostSpotlightComponent() {
   return (
     <div className="posts__spotlight">
       {post && (
-        <div>
+        <article className="posts__spotlight-inner">
           <div className="posts__spotlight-image">
             {post.featureImageUrl && (
               <Image
@@ -26,20 +26,27 @@ export default function PostSpotlightComponent() {
                   objectPosition: "center",
                 }}
                 alt={post.title}
-                className="h-[340px] max-md:h-[190px]"
+                className="posts__spotlight-img"
               />
             )}
           </div>
-          <Link href={`p/${post.slug}`} className="posts__spotlight-content">
-            <h1 className="posts__spotlight-title">{post.title}</h1>
+          <Link href={`/p/${post.slug}`} className="posts__spotlight-content">
+            <p className="posts__spotlight-label">Featured essay</p>
+            <h3 className="posts__spotlight-title">{post.title}</h3>
             <p className="posts_spotlight-description">{post.excerpt}</p>
-            <p className="posts__list-item__content-date">
+            {post.tags?.length > 0 && (
+              <div className="posts__spotlight-tags" aria-label="Post tags">
+                {post.tags.slice(0, 3).map((tag) => (
+                  <span key={tag.id}>{tag.name}</span>
+                ))}
+              </div>
+            )}
+            <div className="posts__spotlight-meta">
               <span>
-                {DateTime.fromISO(post.publishedDate).toFormat("LLL dd")}
-              </span>{" "}
-              -{" "}
-              <span className="uppercase font-normal">{`${post.author.first_name} ${post.author.last_name}`}</span>
-            </p>
+                {DateTime.fromISO(post.publishedDate).toFormat("LLL dd, yyyy")}
+              </span>
+              <span>{`${post.author.first_name} ${post.author.last_name}`}</span>
+            </div>
           </Link>
           <div className="posts__spotlight-footer">
             <div className="flex gap-4 item-center">
@@ -49,7 +56,7 @@ export default function PostSpotlightComponent() {
               </div>
             </div>
           </div>
-        </div>
+        </article>
       )}
     </div>
   );
