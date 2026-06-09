@@ -243,7 +243,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="home__section home__signature">
+      {/* <section className="home__section home__signature">
         <div className="home__section-heading">
           <p className="home__section-kicker">Signature</p>
           <h2>Engineering with product taste and execution speed.</h2>
@@ -264,7 +264,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       <section className="home__section">
         <div className="home__section-heading">
@@ -328,7 +328,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="home__section home__stack">
+      {/* <section className="home__section home__stack">
         <div className="home__section-heading">
           <p className="home__section-kicker">Stack</p>
           <h2>Connected modules for modern product engineering.</h2>
@@ -345,9 +345,9 @@ export default function Home() {
             </article>
           ))}
         </div>
-      </section>
+      </section> */}
 
-      <HomeBlogPreview />
+      {/* <HomeBlogPreview /> */}
 
       <section className="home__final-cta">
         <p className="home__section-kicker">Let&apos;s build</p>

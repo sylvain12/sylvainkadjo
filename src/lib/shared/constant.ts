@@ -10,18 +10,18 @@ export const navMenuItems: INavigationLinkItem[] = [
     name: "Work",
     url: "/projects",
   },
-  {
-    name: "About",
-    url: "/about",
-  },
+  // {
+  //   name: "About",
+  //   url: "/about",
+  // },
   {
     name: "Blog",
     url: "/blog",
   },
-  {
-    name: "Contact",
-    url: "mailto:hello@sylvainkadjo.com",
-  },
+  // {
+  //   name: "Contact",
+  //   url: "mailto:hello@sylvainkadjo.com",
+  // },
 ];
 
 export const socialsLinks = [

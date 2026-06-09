@@ -48,13 +48,6 @@ export default function PostsContent() {
         <>
           <div className="posts__section-header">
             <p className="posts__section-kicker">Latest writing</p>
-            <div>
-              <h2>Notes on software, systems, and product craft.</h2>
-              <p>
-                A focused collection of technical articles, implementation
-                notes, and lessons from building software products.
-              </p>
-            </div>
           </div>
           {<PostSpotlightComponent />}
           <PostListComponent />
