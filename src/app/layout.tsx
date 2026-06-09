@@ -6,8 +6,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Blog - SK",
-  description: "sylvain kadjo website",
+  title: "Sylvain Kadjo - Software Engineer",
+  description:
+    "Portfolio of Sylvain Kadjo, a software engineer building modern web applications, AI/data tools, and scalable systems.",
 };
 
 export default function RootLayout({

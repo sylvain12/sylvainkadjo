@@ -1,19 +1,13 @@
 "use client";
 
-import Button from "@/components/ui/buttons";
-import { useFormErrorStore } from "@/lib/store/error";
 import { useDarkMode } from "@/lib/store/darkmode";
 import { Icon } from "@iconify/react";
 import clsx from "clsx";
+import Link from "next/link";
 import { useEffect } from "react";
-import { useSubscriberStore } from "../newsletter/store";
-import { useSubscribevisibilitystore } from "../subscribe/store";
 
 export default function NavRightComponent() {
-  const { setVisibility } = useSubscribevisibilitystore();
   const { isDark, toggleDarkmode } = useDarkMode();
-  const { setSubscriber } = useSubscriberStore();
-  const { resetForm } = useFormErrorStore();
 
   useEffect(() => {
     localStorage.setItem("theme", isDark ? "dark" : "light");
@@ -28,12 +22,6 @@ export default function NavRightComponent() {
       document.body.classList.remove("dark");
     }
   }, [isDark]);
-
-  const handleVisibility = () => {
-    resetForm();
-    setSubscriber("");
-    setVisibility(true);
-  };
 
   return (
     <div className="navbar__right">
@@ -50,12 +38,9 @@ export default function NavRightComponent() {
           />
         </span>
       </button>
-      <Button
-        label="Subscribe"
-        variant="second"
-        type="button"
-        onClick={handleVisibility}
-      />
+      <Link className="navbar__right-cta" href="mailto:hello@sylvainkadjo.com">
+        Let&apos;s work
+      </Link>
     </div>
   );
 }

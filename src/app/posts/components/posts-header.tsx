@@ -5,30 +5,29 @@ export default function PostsHeaderComponent() {
     <section className="posts__header">
       <div className="posts__header-bg" aria-hidden="true" />
       <div className="posts__header-text">
-        <p className="posts__header-kicker">Software engineer portfolio</p>
-        <h1>Clean interfaces, resilient systems, thoughtful products.</h1>
+        <p className="posts__header-kicker">Technical blog</p>
+        <h1>Essays on software craft, systems, and product engineering.</h1>
         <p className="posts__header-subtitle">
-          I am Sylvain Kadjo, a software engineer crafting fast, polished web
-          experiences with modern frontend architecture and product-minded
-          execution.
+          Field notes from building modern web applications, data-informed
+          tools, resilient systems, and polished product experiences.
         </p>
 
         <div className="posts__header-actions" aria-label="Primary actions">
           <Link href="#latest-writing" className="posts__header-action primary">
-            Read the blog
+            Browse articles
           </Link>
           <Link
-            href="mailto:hello@sylvainkadjo.com"
+            href="/"
             className="posts__header-action secondary"
           >
-            Contact me
+            View portfolio
           </Link>
         </div>
 
         <div className="posts__header-proof" aria-label="Experience highlights">
-          <span>Next.js</span>
-          <span>TypeScript</span>
-          <span>Cloudflare Edge</span>
+          <span>Engineering</span>
+          <span>Product systems</span>
+          <span>Data & AI</span>
         </div>
       </div>
       <div className="posts__header-visual" aria-hidden="true">
@@ -38,20 +37,20 @@ export default function PostsHeaderComponent() {
             <span />
             <span />
           </div>
-          <p className="posts__header-card-label">Current focus</p>
-          <h2>Building elegant, fast interfaces that stay reliable at the edge.</h2>
+          <p className="posts__header-card-label">Editorial focus</p>
+          <h2>Practical writing for engineers who care about product quality.</h2>
           <div className="posts__header-card-grid">
             <div>
-              <strong>14</strong>
-              <span>Next.js</span>
+              <strong>Web</strong>
+              <span>Apps</span>
             </div>
             <div>
-              <strong>18</strong>
-              <span>React</span>
+              <strong>AI</strong>
+              <span>Data</span>
             </div>
             <div>
-              <strong>100%</strong>
-              <span>TypeScript</span>
+              <strong>Edge</strong>
+              <span>Cloud</span>
             </div>
           </div>
         </div>

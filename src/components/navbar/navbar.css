@@ -5,7 +5,7 @@
     }
 
     .navbar__logo a {
-        @apply inline-flex min-h-[4.4rem] items-center rounded-full px-[0.8rem] transition duration-200 hover:bg-light hover:opacity-90 focus-visible:ring-2 focus-visible:ring-second focus-visible:ring-offset-4 focus-visible:ring-offset-white
+        @apply inline-flex min-h-[4.4rem] items-center rounded-full px-[0.8rem] transition duration-200 hover:bg-white hover:opacity-90 focus-visible:ring-2 focus-visible:ring-second focus-visible:ring-offset-4 focus-visible:ring-offset-white
     }
     /* NAV MENU */
     .navbar__menu {
@@ -13,11 +13,11 @@
     }
 
     .navbar__menu-list {
-        @apply flex items-center justify-center gap-[0.4rem] rounded-full border border-light bg-white px-[0.5rem] py-[0.5rem] shadow-sm
+        @apply flex items-center justify-center gap-[0.35rem] rounded-full border border-light bg-white px-[0.45rem] py-[0.45rem] shadow-sm backdrop-blur
     }
 
     .navbar__menu-item {
-        @apply relative rounded-full px-[1.7rem] py-[0.9rem] text-[1.25rem] uppercase font-semibold tracking-normal transition duration-200 hover:bg-light hover:text-second focus-visible:ring-2 focus-visible:ring-second focus-visible:ring-offset-2 focus-visible:ring-offset-white
+        @apply relative rounded-full px-[1.45rem] py-[0.9rem] text-[1.15rem] uppercase font-semibold tracking-normal transition duration-200 hover:bg-light hover:text-second focus-visible:ring-2 focus-visible:ring-second focus-visible:ring-offset-2 focus-visible:ring-offset-white
     }
 
     .navbar__menu-item.active {
@@ -31,6 +31,10 @@
     /* NAV RIGHT */
     .navbar__right {
         @apply flex justify-end items-center gap-[1.2rem] pr-[1.8rem] h-full
+    }
+
+    .navbar__right-cta {
+        @apply inline-flex min-h-[4.2rem] items-center justify-center rounded-full border border-second bg-second px-[1.7rem] text-[1.25rem] font-semibold text-white shadow-sm transition duration-200 hover:-translate-y-[1px] hover:bg-second-light hover:shadow-md focus-visible:ring-2 focus-visible:ring-second focus-visible:ring-offset-2 focus-visible:ring-offset-white
     }
 
     .navbar__right-search {
@@ -68,6 +72,10 @@
 
         .navbar__right {
             @apply col-start-3 pr-[1rem]
+        }
+
+        .navbar__right-cta {
+            @apply hidden
         }
     }
 }

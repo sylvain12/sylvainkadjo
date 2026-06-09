@@ -7,8 +7,20 @@ export const navMenuItems: INavigationLinkItem[] = [
     isActive: true,
   },
   {
+    name: "Work",
+    url: "/projects",
+  },
+  {
+    name: "About",
+    url: "/about",
+  },
+  {
     name: "Blog",
-    url: "/#latest-writing",
+    url: "/blog",
+  },
+  {
+    name: "Contact",
+    url: "mailto:hello@sylvainkadjo.com",
   },
 ];
 

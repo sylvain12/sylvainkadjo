@@ -12,6 +12,7 @@ export default function NavLogoComponent() {
           width={80}
           height={40}
           className="object-contain h-auto w-16"
+          priority
         />
       </Link>
     </div>

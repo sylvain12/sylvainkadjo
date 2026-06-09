@@ -51,8 +51,8 @@ export default function PostsContent() {
             <div>
               <h2>Notes on software, systems, and product craft.</h2>
               <p>
-                Practical essays from building interfaces, shipping products,
-                and keeping modern web apps fast at the edge.
+                A focused collection of technical articles, implementation
+                notes, and lessons from building software products.
               </p>
             </div>
           </div>

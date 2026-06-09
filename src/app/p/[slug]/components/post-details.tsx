@@ -16,7 +16,7 @@ export default function PostDetailComponents({ post }: PostDetailProp) {
       {post && (
         <article className="post-details">
           <header className="post-details__header">
-            <Link href="/#latest-writing" className="post-details__back-link">
+            <Link href="/blog" className="post-details__back-link">
               Back to writing
             </Link>
             {post.tags?.length > 0 && (
@@ -46,6 +46,7 @@ export default function PostDetailComponents({ post }: PostDetailProp) {
                 }}
                 alt={post.title}
                 className="post-details__image-img"
+                priority
               />
             )}
           </div>
