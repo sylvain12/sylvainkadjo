@@ -11,6 +11,5 @@ compatibility_date = "2024-09-05"
 [env.production.vars]
 BUN_VERSION = "latest"
 NEXT_PUBLIC_SUPABASE_URL="https://urlalngimlynwkvmcoml.supabase.co"
-NEXT_PUBLIC_SUPABASE_ANON_KEY="your_public_anon_key"
 NEXT_PUBLIC_SUPABASE_POST_IMAGES_BUCKET='post_images'
 NEXT_PUBLIC_SUPABASE_ASSET_IMAGES_BUCKET='sylvainkadjo-assets'
